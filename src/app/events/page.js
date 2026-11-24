@@ -25,7 +25,7 @@ export default function EventPage() {
   return (
     <div className="bg-[#FBF6EF] text-[#202522] min-h-screen">
       {/* HEADER HERO */}
-      <section className="relative w-full py-20 sm:py-24 flex items-center justify-center text-center overflow-hidden bg-[#004B28] text-white">
+      <section className="relative w-full py-14 sm:py-24 flex items-center justify-center text-center overflow-hidden bg-[#004B28] text-white">
         <Image
           src="/canton-fair-bg.jpg"
           alt="Canton Fair 2026 Delegation"
@@ -53,9 +53,9 @@ export default function EventPage() {
       </section>
 
       {/* EVENT CORE DETAILS SECTION */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-10 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-black/[0.06] grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="bg-white rounded-3xl p-5 sm:p-12 shadow-sm border border-black/[0.06] grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 items-center">
             
             {/* Left Info Column */}
             <div className="lg:col-span-7 space-y-6">
@@ -177,12 +177,12 @@ export default function EventPage() {
                     priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
-                  <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-white/95 backdrop-blur-md border border-black/[0.06] flex items-center justify-between">
-                    <div>
-                      <div className="text-xs font-bold text-[#006B35]">Sunday, 6 September 2026</div>
-                      <div className="text-[11px] text-[#686F6B]">1:00 PM IST • Free Live Workshop</div>
+                  <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-3 sm:left-3 sm:right-3 p-2.5 sm:p-3 rounded-xl bg-white/95 backdrop-blur-md border border-black/[0.06] flex items-center justify-between gap-2">
+                    <div className="min-w-0">
+                      <div className="text-[11px] sm:text-xs font-bold text-[#006B35] truncate">Sunday, 6 September 2026</div>
+                      <div className="text-[10px] sm:text-[11px] text-[#686F6B] truncate">1:00 PM IST • Free Live Workshop</div>
                     </div>
-                    <span className="px-2.5 py-1 rounded-full bg-[#EAF5EC] text-[#006B35] text-[10px] font-bold uppercase tracking-wider">
+                    <span className="px-2 sm:px-2.5 py-1 rounded-full bg-[#EAF5EC] text-[#006B35] text-[10px] font-bold uppercase tracking-wider shrink-0">
                       Online
                     </span>
                   </div>

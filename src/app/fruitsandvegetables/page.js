@@ -60,7 +60,7 @@ export default function FruitsVegetablesPage() {
   return (
     <main className="flex flex-col min-h-screen bg-[#FAF7F2] text-[#18201B]">
       {/* ==== HERO SECTION ==== */}
-      <section className="relative w-full overflow-hidden bg-[#0A1A10] pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-24 md:pb-28">
+      <section className="relative w-full min-h-[380px] sm:min-h-[400px] lg:min-h-[440px] flex items-center overflow-hidden bg-[#0A1A10] py-8 sm:py-12 lg:py-14 border-b border-black/[0.05]">
         {/* Authentic Reference Design Background Artwork with Bottom Curved Wave */}
         <div className="absolute inset-0 z-0 pointer-events-none select-none">
           <Image
@@ -75,10 +75,10 @@ export default function FruitsVegetablesPage() {
           />
         </div>
 
-        {/* Soft overlay on left side for crisp text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-transparent pointer-events-none" />
+        {/* Stronger mobile overlay for crisp text contrast over bright wooden produce crates */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/75 sm:bg-gradient-to-r sm:from-black/55 sm:via-black/25 sm:to-transparent pointer-events-none" />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl space-y-4 sm:space-y-5">
             {/* Top Pill Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/25 text-white text-[11px] font-bold uppercase tracking-wider shadow-sm">
@@ -109,126 +109,130 @@ export default function FruitsVegetablesPage() {
           <Image src="/produce/produce-leaves-right.png" alt="Decorative leaf" fill className="object-contain" />
         </div>
 
-        <div className="max-w-6xl mx-auto space-y-12 sm:space-y-14 relative z-10">
-          {products.map((product, index) => (
-            <motion.div
-              key={product.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className={`flex flex-col ${index % 2 !== 0 ? "lg:flex-row-reverse" : "lg:flex-row"
-                } items-center gap-8 lg:gap-12 bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border border-black/[0.06] shadow-sm hover:shadow-xl transition-all duration-300`}
-            >
-              {/* Image Container */}
-              <div className="relative w-full lg:w-1/2 h-64 sm:h-76 lg:h-84 rounded-2xl overflow-hidden bg-[#F7F6F2] shadow-inner group">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 550px"
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-              </div>
-
-              {/* Description & Specs */}
-              <div className="w-full lg:w-1/2 space-y-4">
-                <div className="space-y-1.5">
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#F58220]">
-                    <span className="w-5 h-[2px] bg-[#F58220] rounded-full inline-block" />
-                    <span>{product.tag}</span>
-                  </div>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-[#111814] font-heading tracking-tight">
-                    {product.name}
-                  </h3>
+        <div className="max-w-6xl mx-auto space-y-10 sm:space-y-12 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-7">
+            {products.map((product) => (
+              <motion.div
+                key={product.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: "some" }}
+                transition={{ duration: 0.45 }}
+                className="flex flex-col justify-between bg-white rounded-3xl overflow-hidden border border-black/[0.07] shadow-sm hover:shadow-xl hover:border-[#006B35]/20 transition-all duration-300 group hover:-translate-y-1"
+              >
+                {/* Image Container */}
+                <div className="relative w-full h-56 sm:h-64 overflow-hidden bg-[#F7F6F2] border-b border-black/[0.05] shrink-0">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 560px"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                 </div>
 
-                <p className="text-sm sm:text-[15px] text-[#556059] leading-relaxed font-normal">
-                  {product.specs}
-                </p>
+                {/* Description & Specs */}
+                <div className="p-5 sm:p-7 flex-1 flex flex-col justify-between gap-4">
+                  <div className="space-y-3.5">
+                    <div className="space-y-1.5">
+                      <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#F58220]">
+                        <span className="w-5 h-[2px] bg-[#F58220] rounded-full inline-block" />
+                        <span>{product.tag}</span>
+                      </div>
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-[#111814] font-heading tracking-tight group-hover:text-[#006B35] transition-colors">
+                        {product.name}
+                      </h3>
+                    </div>
 
-                {/* 3 Key Quality Features */}
-                <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1">
-                  {product.features.map((feature) => (
-                    <span
-                      key={feature}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#18201B]"
+                    <p className="text-sm sm:text-[15px] text-[#556059] leading-relaxed font-normal">
+                      {product.specs}
+                    </p>
+
+                    {/* 3 Key Quality Features */}
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-0.5">
+                      {product.features.map((feature) => (
+                        <span
+                          key={feature}
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#18201B]"
+                        >
+                          <CheckCircle2 size={14} className="text-[#006B35] shrink-0" />
+                          <span>{feature}</span>
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Packaging Specs */}
+                    {product.packaging && (
+                      <div className="p-3.5 rounded-xl bg-[#FAF7F2] border border-black/[0.06] text-xs text-[#686F6B] leading-relaxed">
+                        <span className="font-bold text-[#006B35]">Export Packaging: </span>
+                        {product.packaging}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Action CTA Button */}
+                  <div className="pt-3.5 border-t border-black/[0.06]">
+                    <a
+                      href={`https://wa.me/919028894149?text=Hello%20New%20India%20Export%2C%20I%20am%20interested%20in%20quotation%20for%20${encodeURIComponent(
+                        product.name
+                      )}.`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 sm:py-3 rounded-full bg-[#004B28] hover:bg-[#003B20] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all"
                     >
-                      <CheckCircle2 size={15} className="text-[#006B35]" />
-                      <span>{feature}</span>
-                    </span>
-                  ))}
-                </div>
-
-                {/* Packaging Specs */}
-                {product.packaging && (
-                  <div className="p-3.5 rounded-xl bg-[#FAF7F2] border border-black/[0.06] text-xs text-[#686F6B] leading-relaxed">
-                    <span className="font-bold text-[#006B35]">Export Packaging: </span>
-                    {product.packaging}
+                      <span>Enquire for {product.name}</span>
+                      <ArrowRight size={14} />
+                    </a>
                   </div>
-                )}
-
-                {/* Action CTA Button */}
-                <div className="pt-2">
-                  <a
-                    href={`https://wa.me/919028894149?text=Hello%20New%20India%20Export%2C%20I%20am%20interested%20in%20quotation%20for%20${encodeURIComponent(
-                      product.name
-                    )}.`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#004B28] hover:bg-[#003B20] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all"
-                  >
-                    <span>Enquire for {product.name}</span>
-                    <ArrowRight size={14} />
-                  </a>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
 
           {/* Bottom 4-Pillar Feature Bar (Matches Reference Image Perfectly) */}
-          <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-black/[0.06] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 divide-y sm:divide-y-0 lg:divide-x divide-black/[0.06]">
+          <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-black/[0.06] grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:divide-x divide-black/[0.06]">
             {/* Col 1 */}
-            <div className="flex items-center gap-3.5 pt-2 sm:pt-0">
-              <div className="w-11 h-11 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center shrink-0 border border-[#006B35]/15 shadow-2xs">
+            <div className="flex items-center gap-3 sm:gap-3.5">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center shrink-0 border border-[#006B35]/15 shadow-2xs">
                 <Globe2 size={20} />
               </div>
-              <div className="space-y-0.5">
-                <h4 className="text-sm sm:text-base font-extrabold text-[#111814] font-heading">25+ Countries</h4>
-                <p className="text-xs text-[#686F6B] leading-snug">Exporting Freshness Globally</p>
+              <div className="space-y-0.5 min-w-0">
+                <h4 className="text-xs sm:text-base font-extrabold text-[#111814] font-heading leading-tight">25+ Countries</h4>
+                <p className="text-[11px] sm:text-xs text-[#686F6B] leading-snug">Exporting Freshness Globally</p>
               </div>
             </div>
 
             {/* Col 2 */}
-            <div className="flex items-center gap-3.5 pt-3 sm:pt-0 lg:pl-6">
-              <div className="w-11 h-11 rounded-xl bg-[#FFF6EE] text-[#F58220] flex items-center justify-center shrink-0 border border-[#F58220]/20 shadow-2xs">
+            <div className="flex items-center gap-3 sm:gap-3.5 lg:pl-6">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#FFF6EE] text-[#F58220] flex items-center justify-center shrink-0 border border-[#F58220]/20 shadow-2xs">
                 <ShieldCheck size={20} />
               </div>
-              <div className="space-y-0.5">
-                <h4 className="text-sm sm:text-base font-extrabold text-[#111814] font-heading">100% Quality</h4>
-                <p className="text-xs text-[#686F6B] leading-snug">Assured Products</p>
+              <div className="space-y-0.5 min-w-0">
+                <h4 className="text-xs sm:text-base font-extrabold text-[#111814] font-heading leading-tight">100% Quality</h4>
+                <p className="text-[11px] sm:text-xs text-[#686F6B] leading-snug">Assured Products</p>
               </div>
             </div>
 
             {/* Col 3 */}
-            <div className="flex items-center gap-3.5 pt-3 sm:pt-0 lg:pl-6">
-              <div className="w-11 h-11 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center shrink-0 border border-[#006B35]/15 shadow-2xs">
+            <div className="flex items-center gap-3 sm:gap-3.5 lg:pl-6">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center shrink-0 border border-[#006B35]/15 shadow-2xs">
                 <Leaf size={20} />
               </div>
-              <div className="space-y-0.5">
-                <h4 className="text-sm sm:text-base font-extrabold text-[#111814] font-heading">Farm-Fresh</h4>
-                <p className="text-xs text-[#686F6B] leading-snug">From Indian Farms</p>
+              <div className="space-y-0.5 min-w-0">
+                <h4 className="text-xs sm:text-base font-extrabold text-[#111814] font-heading leading-tight">Farm-Fresh</h4>
+                <p className="text-[11px] sm:text-xs text-[#686F6B] leading-snug">From Indian Farms</p>
               </div>
             </div>
 
             {/* Col 4 */}
-            <div className="flex items-center gap-3.5 pt-3 sm:pt-0 lg:pl-6">
-              <div className="w-11 h-11 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center shrink-0 border border-[#006B35]/15 shadow-2xs">
+            <div className="flex items-center gap-3 sm:gap-3.5 lg:pl-6">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center shrink-0 border border-[#006B35]/15 shadow-2xs">
                 <Handshake size={20} />
               </div>
-              <div className="space-y-0.5">
-                <h4 className="text-sm sm:text-base font-extrabold text-[#111814] font-heading">Reliable Partner</h4>
-                <p className="text-xs text-[#686F6B] leading-snug">Building Global Trust</p>
+              <div className="space-y-0.5 min-w-0">
+                <h4 className="text-xs sm:text-base font-extrabold text-[#111814] font-heading leading-tight">Reliable Partner</h4>
+                <p className="text-[11px] sm:text-xs text-[#686F6B] leading-snug">Building Global Trust</p>
               </div>
             </div>
           </div>

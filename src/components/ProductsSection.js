@@ -58,7 +58,7 @@ export default function ProductsSection() {
   ];
 
   return (
-    <section id="products" className="relative w-full py-16 sm:py-20 lg:py-24 bg-[#FBF6EF] overflow-hidden">
+    <section id="products" className="relative scroll-mt-20 lg:scroll-mt-24 w-full py-12 sm:py-20 lg:py-24 bg-[#FBF6EF] overflow-hidden">
       {/* Master Artwork Background from mockup with farmland, mountains, and curved corner accents */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <Image
@@ -109,17 +109,17 @@ export default function ProductsSection() {
           </Link>
         </div>
 
-        {/* 6 Bento Product Cards Grid (3 columns x 2 rows matching mockup) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+        {/* 6 Bento Product Cards Grid (2 columns on mobile, 3 on desktop) */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-7">
           {products.map((item, index) => (
             <motion.div
               key={item.name}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
+              viewport={{ once: true, amount: "some" }}
+              transition={{ duration: 0.45, delay: index * 0.06 }}
               whileHover={{ y: -5 }}
-              className="group relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 bg-[#141916] border border-white/10 hover:border-[#F58220]/70 flex flex-col justify-end min-h-[380px]"
+              className="group relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 bg-[#141916] border border-white/10 hover:border-[#F58220]/70 flex flex-col justify-end min-h-[250px] sm:min-h-[380px]"
             >
               {/* Card Photo Background */}
               <div className="absolute inset-0 z-0">
@@ -127,35 +127,35 @@ export default function ProductsSection() {
                   src={item.img}
                   alt={item.name}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#141916] via-[#141916]/40 to-black/10 group-hover:via-[#141916]/25 transition-colors duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#141916] via-[#141916]/55 sm:via-[#141916]/40 to-black/10 group-hover:via-[#141916]/25 transition-colors duration-500" />
               </div>
 
               {/* Card Bottom Content Area */}
-              <div className="relative z-10 p-6 sm:p-7 text-white space-y-3 pt-28">
+              <div className="relative z-10 p-3.5 sm:p-7 text-white space-y-1.5 sm:space-y-3 pt-16 sm:pt-28">
                 {/* Orange Sub-badge */}
-                <div className="text-[11px] font-black uppercase tracking-widest text-[#F58220]">
+                <div className="text-[9px] sm:text-[11px] font-black uppercase tracking-wider sm:tracking-widest text-[#F58220] leading-tight">
                   {item.subBadge}
                 </div>
 
                 {/* Main Title */}
-                <h3 className="text-xl sm:text-2xl font-bold font-heading tracking-tight text-white group-hover:text-amber-200 transition-colors drop-shadow-xs">
+                <h3 className="text-sm sm:text-2xl font-bold font-heading tracking-tight text-white group-hover:text-amber-200 transition-colors drop-shadow-xs leading-snug">
                   {item.name}
                 </h3>
 
                 {/* Description */}
-                <p className="text-xs sm:text-sm text-white/80 line-clamp-2 leading-relaxed font-light">
+                <p className="text-[11px] sm:text-sm text-white/80 line-clamp-2 leading-relaxed font-light">
                   {item.desc}
                 </p>
 
                 {/* Tag Pills */}
-                <div className="flex flex-wrap gap-1.5 pt-0.5">
+                <div className="flex flex-wrap gap-1 sm:gap-1.5 pt-0.5">
                   {item.tags.map((t) => (
                     <span
                       key={t}
-                      className="px-2.5 py-0.5 rounded-full bg-white/15 backdrop-blur-xs text-[11px] text-white/95 border border-white/10 font-medium"
+                      className="px-1.5 sm:px-2.5 py-0.5 rounded-full bg-white/15 backdrop-blur-xs text-[9px] sm:text-[11px] text-white/95 border border-white/10 font-medium"
                     >
                       {t}
                     </span>
@@ -163,21 +163,21 @@ export default function ProductsSection() {
                 </div>
 
                 {/* Action Footer */}
-                <div className="pt-3.5 flex items-center justify-between border-t border-white/10 text-xs">
+                <div className="pt-2.5 sm:pt-3.5 flex items-center justify-between gap-1.5 border-t border-white/10 text-[11px] sm:text-xs">
                   <Link
                     href={item.link}
-                    className="inline-flex items-center gap-1.5 font-bold text-white group-hover:text-[#F58220] transition-colors"
+                    className="inline-flex items-center gap-1 sm:gap-1.5 font-bold text-white group-hover:text-[#F58220] transition-colors leading-tight"
                   >
                     <span>Explore Products</span>
-                    <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                    <ArrowRight size={13} className="shrink-0 transition-transform group-hover:translate-x-1" />
                   </Link>
 
                   <Link
                     href={item.link}
                     aria-label={`Explore ${item.name}`}
-                    className="w-8 h-8 rounded-full border border-white/30 group-hover:border-[#F58220] group-hover:bg-[#F58220] flex items-center justify-center transition-all duration-300 shadow-xs cursor-pointer"
+                    className="w-6 h-6 sm:w-8 sm:h-8 shrink-0 rounded-full border border-white/30 group-hover:border-[#F58220] group-hover:bg-[#F58220] flex items-center justify-center transition-all duration-300 shadow-xs cursor-pointer"
                   >
-                    <ArrowRight size={14} className="text-white" />
+                    <ArrowRight size={12} className="text-white" />
                   </Link>
                 </div>
               </div>

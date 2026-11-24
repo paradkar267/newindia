@@ -51,11 +51,11 @@ export default function AboutUsSection() {
           
           {/* Left Column: Visual Sourcing & Inspection Collage */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-5 relative"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: "some" }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-5 relative pb-8 lg:pb-0"
           >
             <div className="relative mx-auto max-w-md lg:max-w-none">
               {/* Primary Image */}
@@ -68,7 +68,7 @@ export default function AboutUsSection() {
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-5 right-5 text-white">
+                <div className="absolute bottom-6 left-5 right-5 text-white">
                   <span className="text-xs font-semibold text-[#F58220] uppercase tracking-wider">
                     Farm Origin Sourcing
                   </span>
@@ -82,9 +82,9 @@ export default function AboutUsSection() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="absolute -bottom-6 -right-4 sm:-right-6 bg-white rounded-2xl p-4 shadow-xl border border-black/[0.08] max-w-xs"
+                viewport={{ once: true, amount: "some" }}
+                transition={{ delay: 0.2 }}
+                className="absolute -bottom-5 sm:-bottom-6 right-2 sm:-right-6 bg-white rounded-2xl p-3.5 sm:p-4 shadow-xl border border-black/[0.08] max-w-[240px] sm:max-w-xs"
               >
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 rounded-xl bg-[#EAF5EC] text-[#006B35]">
@@ -101,10 +101,10 @@ export default function AboutUsSection() {
 
           {/* Right Column: Company Vision & Narrative */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: "some" }}
+            transition={{ duration: 0.6 }}
             className="lg:col-span-7 space-y-6"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EAF5EC] text-[#006B35] text-xs font-semibold uppercase tracking-wider">

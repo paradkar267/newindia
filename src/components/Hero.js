@@ -33,17 +33,107 @@ export default function Hero() {
   const [bookingOpen, setBookingOpen] = useState(false);
   const [eventOpen, setEventOpen] = useState(false);
 
+  const scrollToProducts = (e) => {
+    e.preventDefault();
+    const el = document.getElementById("products");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.replaceState(null, "", "#products");
+    }
+  };
+
   return (
     <>
       {/* =========================================================================
-          HERO SECTION: Full-Bleed Multi-Modal Artwork with Custom Branded Headline
-          Directly matching the exact design reference
+          HERO SECTION: Responsive Desktop Panorama + Clean Mobile/Tablet Showcase
          ========================================================================= */}
-      <section className="relative w-full overflow-hidden bg-[#004B28] -mt-18 sm:-mt-20 lg:-mt-22">
+      <section className="relative w-full overflow-hidden bg-[#042917] -mt-18 sm:-mt-20 lg:-mt-22">
 
-        {/* Cinematic Hero Background Graphic using High-Res clear hero.png (Natural Aspect Ratio, No Zoom) */}
+        {/* MOBILE & TABLET HERO (< lg): High-contrast atmospheric header + seamless multimodal harbor panorama */}
+        <div className="relative lg:hidden w-full bg-[#042917] overflow-hidden pt-24 sm:pt-28">
+          {/* Ambient radial glow and subtle coordinate grid */}
+          <div className="absolute -top-24 right-[-15%] w-72 h-72 rounded-full bg-[#008C45]/25 blur-3xl pointer-events-none" />
+          <div className="absolute top-28 -left-16 w-56 h-56 rounded-full bg-[#F58220]/10 blur-3xl pointer-events-none" />
+          <div
+            className="absolute inset-0 opacity-[0.07] pointer-events-none"
+            style={{
+              backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)",
+              backgroundSize: "20px 20px",
+            }}
+          />
+
+          {/* Hero Copy Stack: Crisp legibility, zero colliding background shapes */}
+          <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 space-y-3.5 sm:space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.08] border border-white/15 backdrop-blur-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F58220] animate-pulse" />
+              <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-emerald-100">
+                APEDA &amp; FSSAI Certified Exporter
+              </span>
+            </div>
+
+            <h1 className="text-[31px] sm:text-[42px] font-extrabold text-white leading-[1.08] tracking-tight font-heading">
+              Indian produce.<br />
+              <span className="text-[#F58220]">Worldwide</span> delivery.
+            </h1>
+
+            <p className="text-[13.5px] sm:text-base text-white/85 max-w-md leading-relaxed">
+              Source Indian spices, grains and fresh produce for your market.
+            </p>
+
+            {/* Primary CTA + Compact Multi-Modal Strip */}
+            <div className="pt-1 flex flex-col sm:flex-row sm:items-center gap-3.5 sm:gap-5">
+              <div>
+                <a
+                  href="#products"
+                  onClick={scrollToProducts}
+                  className="inline-flex items-center gap-2.5 px-5 py-2.5 sm:py-3 rounded-xl bg-[#F58220] hover:bg-[#E07216] text-white font-bold text-xs sm:text-sm shadow-lg shadow-[#F58220]/25 transition-all duration-300 active:scale-[0.98] group"
+                >
+                  <span>Explore products</span>
+                  <span className="w-4.5 h-4.5 rounded-full bg-white text-[#F58220] flex items-center justify-center font-bold text-[10px] transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </a>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold text-white/80">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/[0.06] border border-white/10">
+                  <Ship size={12} className="text-[#F58220]" />
+                  <span>Sea Freight</span>
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/[0.06] border border-white/10">
+                  <Plane size={12} className="text-emerald-300" />
+                  <span>Air Cargo</span>
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/[0.06] border border-white/10">
+                  <Truck size={12} className="text-[#F58220]" />
+                  <span>ICD Rail</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Seamless Multi-Modal Harbor Panorama (Truck + Ocean Vessel at Sunset) */}
+          <div className="relative w-full aspect-[2.2/1] sm:aspect-[2.6/1] mt-5 sm:mt-7">
+            <Image
+              src="/updates/Sunset port with ship and truck.png"
+              alt="New India Export Multi-Modal Port, Container Truck & Ocean Vessel"
+              fill
+              priority
+              quality={90}
+              sizes="(max-width: 1023px) 100vw, 1024px"
+              className="object-cover object-[30%_center] sm:object-center"
+            />
+            {/* Smooth atmospheric mist blending sky into emerald header canvas */}
+            <div className="absolute inset-x-0 top-0 h-14 sm:h-20 bg-gradient-to-b from-[#042917] via-[#042917]/55 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+            {/* Signature Saffron-Emerald Accent Horizon Line */}
+            <div className="absolute inset-x-0 bottom-0 h-[3px] bg-gradient-to-r from-[#F58220] via-[#ff9d47] to-[#006B35]" />
+          </div>
+        </div>
+
+        {/* DESKTOP HERO (lg+): Full-Bleed Signature Panorama Artwork */}
         <div
-          className="relative w-full min-h-[460px] sm:min-h-[500px] md:min-h-0"
+          className="relative hidden lg:block w-full"
           style={{ aspectRatio: "1923 / 818" }}
         >
           <Image
@@ -57,48 +147,41 @@ export default function Hero() {
           />
 
           {/* Overlaid Headline, Subtitle and CTA Button: Balanced in the open green sky */}
-          <div className="relative z-10 max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex flex-col justify-start pt-22 sm:pt-26 md:pt-26 lg:pt-30">
-            <div className="md:ml-[16%] lg:ml-[17%] xl:ml-[17%] max-w-md lg:max-w-lg space-y-2 sm:space-y-3">
+          <div className="relative z-10 max-w-7xl mx-auto h-full px-8 flex flex-col justify-start pt-24 xl:pt-28">
+            <div className="ml-[17%] max-w-md lg:max-w-lg space-y-2.5 xl:space-y-3">
 
-
-              {/* Proportional 2-Line Headline matching reference */}
               <motion.h1
-                initial={{ opacity: 0, y: 15 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[46px] font-extrabold text-white leading-[1.12] tracking-tight drop-shadow-md"
+                className="text-[36px] xl:text-[46px] font-extrabold text-white leading-[1.12] tracking-tight drop-shadow-md"
               >
                 Indian produce.<br />
                 Worldwide delivery.
               </motion.h1>
 
-
-              {/* Subheading */}
               <motion.p
-                initial={{ opacity: 0, y: 15 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                className="text-xs sm:text-sm md:text-base text-white/95 max-w-sm sm:max-w-md leading-relaxed font-normal drop-shadow"
+                className="text-sm xl:text-base text-white/95 max-w-md leading-relaxed font-normal drop-shadow"
               >
                 Source Indian spices, grains and fresh produce for your market.
               </motion.p>
 
-              {/* Explore Products Button */}
               <motion.div
-                initial={{ opacity: 0, y: 15 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                 className="pt-1"
               >
-                <Link
+                <a
                   href="#products"
-                  className="inline-flex items-center gap-2.5 px-4.5 sm:px-5 py-2 sm:py-2.5 rounded-lg bg-[#F58220] hover:bg-[#E07216] text-white font-bold text-xs sm:text-[13px] shadow-md shadow-[#F58220]/25 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] group"
+                  onClick={scrollToProducts}
+                  className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-lg bg-[#F58220] hover:bg-[#E07216] text-white font-bold text-[13px] shadow-md shadow-[#F58220]/25 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] group"
                 >
                   <span>Explore products</span>
                   <span className="w-4.5 h-4.5 rounded-full bg-white text-[#F58220] flex items-center justify-center font-bold text-[10px] transition-transform duration-300 group-hover:translate-x-1">
                     →
                   </span>
-                </Link>
+                </a>
               </motion.div>
 
             </div>
@@ -111,14 +194,14 @@ export default function Hero() {
            ========================================================================= */}
         <div className="w-full bg-[#FBF6EF] border-b border-[#006B35]/10 shadow-2xs">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[#006B35]/10">
+            <div className="grid grid-cols-2 md:grid-cols-4 [&>*]:border-[#006B35]/10 [&>*:nth-child(-n+2)]:border-b md:[&>*:nth-child(-n+2)]:border-b-0 [&>*:nth-child(odd)]:border-r md:[&>*]:border-r md:[&>*:last-child]:border-r-0">
 
               <Link
                 href="/spices"
-                className="py-4 sm:py-5 px-3 text-center group hover:bg-[#EAF5EC]/60 transition-all flex flex-col items-center justify-center"
+                className="py-3.5 sm:py-5 px-2.5 sm:px-3 text-center group hover:bg-[#EAF5EC]/60 transition-all flex flex-col items-center justify-center"
               >
                 <div className="flex items-center gap-1.5">
-                  <span className="text-base sm:text-lg md:text-xl font-bold text-[#004B28] group-hover:text-[#F58220] transition-colors font-heading">
+                  <span className="text-sm sm:text-lg md:text-xl font-bold text-[#004B28] group-hover:text-[#F58220] transition-colors font-heading">
                     Spices
                   </span>
                   <span className="text-xs text-[#F58220] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
@@ -130,10 +213,10 @@ export default function Hero() {
 
               <Link
                 href="/cerealsandpulses"
-                className="py-4 sm:py-5 px-3 text-center group hover:bg-[#EAF5EC]/60 transition-all flex flex-col items-center justify-center"
+                className="py-3.5 sm:py-5 px-2.5 sm:px-3 text-center group hover:bg-[#EAF5EC]/60 transition-all flex flex-col items-center justify-center"
               >
                 <div className="flex items-center gap-1.5">
-                  <span className="text-base sm:text-lg md:text-xl font-bold text-[#004B28] group-hover:text-[#F58220] transition-colors font-heading">
+                  <span className="text-sm sm:text-lg md:text-xl font-bold text-[#004B28] group-hover:text-[#F58220] transition-colors font-heading">
                     Cereals & pulses
                   </span>
                   <span className="text-xs text-[#F58220] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
@@ -145,10 +228,10 @@ export default function Hero() {
 
               <Link
                 href="/fruitsandvegetables"
-                className="py-4 sm:py-5 px-3 text-center group hover:bg-[#EAF5EC]/60 transition-all flex flex-col items-center justify-center"
+                className="py-3.5 sm:py-5 px-2.5 sm:px-3 text-center group hover:bg-[#EAF5EC]/60 transition-all flex flex-col items-center justify-center"
               >
                 <div className="flex items-center gap-1.5">
-                  <span className="text-base sm:text-lg md:text-xl font-bold text-[#004B28] group-hover:text-[#F58220] transition-colors font-heading">
+                  <span className="text-sm sm:text-lg md:text-xl font-bold text-[#004B28] group-hover:text-[#F58220] transition-colors font-heading">
                     Fresh produce
                   </span>
                   <span className="text-xs text-[#F58220] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
@@ -160,10 +243,10 @@ export default function Hero() {
 
               <Link
                 href="/organicfood"
-                className="py-4 sm:py-5 px-3 text-center group hover:bg-[#EAF5EC]/60 transition-all flex flex-col items-center justify-center"
+                className="py-3.5 sm:py-5 px-2.5 sm:px-3 text-center group hover:bg-[#EAF5EC]/60 transition-all flex flex-col items-center justify-center"
               >
                 <div className="flex items-center gap-1.5">
-                  <span className="text-base sm:text-lg md:text-xl font-bold text-[#004B28] group-hover:text-[#F58220] transition-colors font-heading">
+                  <span className="text-sm sm:text-lg md:text-xl font-bold text-[#004B28] group-hover:text-[#F58220] transition-colors font-heading">
                     Organic foods
                   </span>
                   <span className="text-xs text-[#F58220] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
@@ -189,7 +272,7 @@ export default function Hero() {
 
             {/* Card 1: International Sourcing Delegation */}
             <div className="lg:col-span-7 rounded-2xl bg-white border border-black/[0.07] p-7 sm:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between">
-              
+
               <div className="space-y-4">
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="text-[11px] font-semibold text-[#006B35] uppercase tracking-wider">Global Trade Delegations · 2026</span>
@@ -221,7 +304,7 @@ export default function Hero() {
                 <button
                   type="button"
                   onClick={() => setEventOpen(true)}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#006B35] hover:bg-[#004B28] text-white font-semibold text-sm transition-colors"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#006B35] hover:bg-[#004B28] text-white font-semibold text-sm transition-colors"
                 >
                   Register for Delegation Workshop
                   <ArrowRight size={14} />
@@ -230,7 +313,7 @@ export default function Hero() {
                   href="/Modern%20Online%20Webinar%20(2).pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full border border-black/[0.12] hover:border-[#006B35]/40 text-[#0D1F14] font-semibold text-sm transition-colors"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full border border-black/[0.12] hover:border-[#006B35]/40 text-[#0D1F14] font-semibold text-sm transition-colors"
                 >
                   <Download size={13} className="text-[#F58220]" />
                   Download Delegation Brief
@@ -239,7 +322,7 @@ export default function Hero() {
             </div>
 
             {/* Card 2: Export Trade Advisory */}
-            <div className="lg:col-span-5 rounded-2xl bg-[#063A1E] text-white p-7 sm:p-8 flex flex-col justify-between">
+            <div className="lg:col-span-5 rounded-2xl bg-[#063A1E] text-white p-6 sm:p-8 flex flex-col justify-between">
               <div className="space-y-4">
                 <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-400 uppercase tracking-wider">
                   <ShieldCheck size={12} />
@@ -276,7 +359,7 @@ export default function Hero() {
                 </ul>
               </div>
 
-              <div className="pt-5 mt-4 border-t border-white/[0.1] flex items-center justify-between">
+              <div className="pt-5 mt-4 border-t border-white/[0.1] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
                   <span className="text-[11px] text-white/50 uppercase tracking-wider block mb-0.5">Trade Desk Status</span>
                   <span className="text-sm font-semibold text-emerald-400 flex items-center gap-1.5">
@@ -287,7 +370,7 @@ export default function Hero() {
                 <button
                   type="button"
                   onClick={() => setBookingOpen(true)}
-                  className="px-5 py-2.5 rounded-full bg-[#F58220] hover:bg-[#E07216] text-white font-semibold text-sm transition-colors"
+                  className="w-full sm:w-auto px-5 py-2.5 rounded-full bg-[#F58220] hover:bg-[#E07216] text-white font-semibold text-sm transition-colors text-center shrink-0"
                 >
                   Consult Trade Desk
                 </button>
@@ -297,33 +380,33 @@ export default function Hero() {
           </div>
 
           {/* Metrics strip */}
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-black/[0.06] bg-white rounded-2xl border border-black/[0.07] shadow-sm overflow-hidden">
-            <div className="flex items-center gap-3 px-6 py-4">
-              <Globe2 size={20} className="text-[#006B35] shrink-0" />
+          <div className="grid grid-cols-2 md:grid-cols-4 [&>*]:border-black/[0.06] [&>*:nth-child(-n+2)]:border-b md:[&>*:nth-child(-n+2)]:border-b-0 [&>*:nth-child(odd)]:border-r md:[&>*]:border-r md:[&>*:last-child]:border-r-0 bg-white rounded-2xl border border-black/[0.07] shadow-sm overflow-hidden">
+            <div className="flex items-start sm:items-center gap-2.5 sm:gap-3 px-3.5 py-4 sm:px-6">
+              <Globe2 size={20} className="text-[#006B35] shrink-0 mt-0.5 sm:mt-0" />
               <div>
-                <p className="text-base font-bold text-[#0D1F14]">Zero-Mile Hub</p>
-                <p className="text-xs text-[#7A8880] mt-0.5">Nagpur ICD MIHAN Dry Port</p>
+                <p className="text-sm sm:text-base font-bold text-[#0D1F14]">Zero-Mile Hub</p>
+                <p className="text-[11px] sm:text-xs text-[#7A8880] mt-0.5">Nagpur ICD MIHAN Dry Port</p>
               </div>
             </div>
-            <div className="flex items-center gap-3 px-6 py-4">
-              <Package size={20} className="text-[#F58220] shrink-0" />
+            <div className="flex items-start sm:items-center gap-2.5 sm:gap-3 px-3.5 py-4 sm:px-6">
+              <Package size={20} className="text-[#F58220] shrink-0 mt-0.5 sm:mt-0" />
               <div>
-                <p className="text-base font-bold text-[#0D1F14]">50,000+ MT</p>
-                <p className="text-xs text-[#7A8880] mt-0.5">Annual Agricultural Sourcing</p>
+                <p className="text-sm sm:text-base font-bold text-[#0D1F14]">50,000+ MT</p>
+                <p className="text-[11px] sm:text-xs text-[#7A8880] mt-0.5">Annual Agricultural Sourcing</p>
               </div>
             </div>
-            <div className="flex items-center gap-3 px-6 py-4">
-              <Ship size={20} className="text-[#006B35] shrink-0" />
+            <div className="flex items-start sm:items-center gap-2.5 sm:gap-3 px-3.5 py-4 sm:px-6">
+              <Ship size={20} className="text-[#006B35] shrink-0 mt-0.5 sm:mt-0" />
               <div>
-                <p className="text-base font-bold text-[#0D1F14]">18+ Countries</p>
-                <p className="text-xs text-[#7A8880] mt-0.5">Active Global Delivery Ports</p>
+                <p className="text-sm sm:text-base font-bold text-[#0D1F14]">18+ Countries</p>
+                <p className="text-[11px] sm:text-xs text-[#7A8880] mt-0.5">Active Global Delivery Ports</p>
               </div>
             </div>
-            <div className="flex items-center gap-3 px-6 py-4">
-              <ShieldCheck size={20} className="text-[#F58220] shrink-0" />
+            <div className="flex items-start sm:items-center gap-2.5 sm:gap-3 px-3.5 py-4 sm:px-6">
+              <ShieldCheck size={20} className="text-[#F58220] shrink-0 mt-0.5 sm:mt-0" />
               <div>
-                <p className="text-base font-bold text-[#0D1F14]">100% Verified</p>
-                <p className="text-xs text-[#7A8880] mt-0.5">APEDA & Geo-Chem Lab Tested</p>
+                <p className="text-sm sm:text-base font-bold text-[#0D1F14]">100% Verified</p>
+                <p className="text-[11px] sm:text-xs text-[#7A8880] mt-0.5">APEDA & Geo-Chem Lab Tested</p>
               </div>
             </div>
           </div>
@@ -335,26 +418,33 @@ export default function Hero() {
           ABOUT NEW INDIA EXPORT - EXECUTIVE CORPORATE OVERVIEW
           Authentic ground operations, farm-gate provenance & multi-modal logistics
          ========================================================================= */}
-      <section className="w-full bg-[#FBF6EF] py-16 sm:py-24 relative overflow-hidden">
-        {/* Subtle decorative background gradient */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#EAF5EC] to-transparent rounded-full blur-3xl pointer-events-none opacity-50" />
+      <section className="w-full bg-[#FBF6EF] py-14 sm:py-20 lg:py-24 relative overflow-hidden">
+        {/* Subtle Editorial Backdrop: Dot Matrix + Ambient Warm Glows */}
+        <div className="absolute inset-0 bg-dot-pattern-light opacity-40 pointer-events-none" />
+        <div className="absolute -top-20 right-[-5%] w-[420px] h-[420px] bg-gradient-to-bl from-[#EAF5EC] via-[#EAF5EC]/50 to-transparent rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-[-5%] w-80 h-80 bg-gradient-to-tr from-[#FFF3E6] to-transparent rounded-full blur-3xl pointer-events-none opacity-80" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative space-y-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
 
             {/* Left 7 Columns: Authoritative Story, Provenance & Pillars */}
             <div className="lg:col-span-7 space-y-6">
 
-              <div className="space-y-3">
-                <p className="text-[11px] font-semibold text-[#006B35] uppercase tracking-widest">Corporate Overview · Verified Merchant Exporter</p>
+              <div className="space-y-3.5">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF5EC] border border-[#006B35]/20 text-[#006B35] text-[11px] font-bold uppercase tracking-[0.12em] shadow-2xs">
+                  <Building2 size={13} className="text-[#F58220] shrink-0" />
+                  <span>Corporate Overview · Verified Merchant Exporter</span>
+                </div>
 
-                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#0D1F14] tracking-tight leading-[1.18]">
-                  Connecting India&apos;s Premier Agro-Clusters with Global Markets
+                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#0D1F14] font-heading tracking-[-0.015em] leading-[1.15]">
+                  Connecting India&apos;s Premier Agro-Clusters with{" "}
+                  <span className="text-[#006B35]">Global</span>{" "}
+                  <span className="text-[#F58220]">Markets</span>
                 </h2>
               </div>
 
-              <div className="space-y-3 text-sm text-[#5A6460] leading-relaxed">
+              <div className="space-y-3.5 text-sm sm:text-[15px] text-[#4D5852] leading-[1.7]">
                 <p>
                   Headquartered at India&apos;s zero-mile geographical hub in <strong className="text-[#111814] font-semibold">Nagpur, Maharashtra</strong>—with direct rail connectivity to major container dry ports (ICD MIHAN) and JNPT (Nhava Sheva)—<strong className="text-[#006B35] font-semibold">New India Export</strong> is an established merchant export house supplying premium agricultural commodities to international markets.
                 </p>
@@ -363,26 +453,41 @@ export default function Hero() {
                 </p>
               </div>
 
-              {/* 3 capability cards — cleaner, less icon-heavy */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {/* 3 Elevated Capability Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-1">
 
-                <div className="p-4 rounded-xl bg-white border border-black/[0.07] space-y-1.5">
-                  <p className="text-xs font-semibold text-[#006B35] uppercase tracking-wider">Direct Farm-Gate</p>
-                  <p className="text-xs text-[#7A8880] leading-relaxed">
+                <div className="group p-4 rounded-2xl bg-white border border-black/[0.06] hover:border-[#006B35]/30 shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 space-y-2.5">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-8 h-8 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center shrink-0 border border-[#006B35]/15">
+                      <MapPin size={15} />
+                    </span>
+                    <p className="text-xs font-extrabold text-[#006B35] uppercase tracking-wider">Direct Farm-Gate</p>
+                  </div>
+                  <p className="text-xs text-[#5A6660] leading-relaxed">
                     Zero-middleman sourcing across 40+ accredited farm clusters in Maharashtra, MP &amp; Punjab.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-white border border-black/[0.07] space-y-1.5">
-                  <p className="text-xs font-semibold text-[#F58220] uppercase tracking-wider">Certified Quality</p>
-                  <p className="text-xs text-[#7A8880] leading-relaxed">
+                <div className="group p-4 rounded-2xl bg-white border border-black/[0.06] hover:border-[#F58220]/35 shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 space-y-2.5">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-8 h-8 rounded-xl bg-[#FFF4EA] text-[#F58220] flex items-center justify-center shrink-0 border border-[#F58220]/20">
+                      <Award size={15} />
+                    </span>
+                    <p className="text-xs font-extrabold text-[#F58220] uppercase tracking-wider">Certified Quality</p>
+                  </div>
+                  <p className="text-xs text-[#5A6660] leading-relaxed">
                     Mandatory APEDA, FSSAI &amp; Spices Board laboratory analysis for every shipping container.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-white border border-black/[0.07] space-y-1.5">
-                  <p className="text-xs font-semibold text-[#006B35] uppercase tracking-wider">Port Logistics</p>
-                  <p className="text-xs text-[#7A8880] leading-relaxed">
+                <div className="group p-4 rounded-2xl bg-white border border-black/[0.06] hover:border-[#006B35]/30 shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 space-y-2.5">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-8 h-8 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center shrink-0 border border-[#006B35]/15">
+                      <Ship size={15} />
+                    </span>
+                    <p className="text-xs font-extrabold text-[#006B35] uppercase tracking-wider">Port Logistics</p>
+                  </div>
+                  <p className="text-xs text-[#5A6660] leading-relaxed">
                     Direct rail dispatch to JNPT &amp; Mundra with temperature-controlled reefers.
                   </p>
                 </div>
@@ -390,76 +495,96 @@ export default function Hero() {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3.5 pt-3">
+              <div className="flex flex-wrap items-center gap-3 pt-2">
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#006B35] hover:bg-[#004B28] text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#006B35] to-[#004B28] hover:from-[#00582B] hover:to-[#003B20] text-white font-bold text-xs sm:text-sm shadow-md shadow-[#006B35]/20 hover:shadow-lg transition-all duration-300 group"
                 >
                   <span>Explore Our Ground Operations</span>
-                  <ArrowRight size={15} />
+                  <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
                 </Link>
 
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white hover:bg-[#EAF5EC] text-[#004B28] border border-[#006B35]/20 font-semibold text-xs sm:text-sm shadow-2xs transition-colors"
+                >
+                  <span>Connect With Trade Desk</span>
+                </Link>
               </div>
 
             </div>
 
-            {/* Right 5 Columns: Multi-Layered Real Ground Photography Showcase */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto max-w-md lg:max-w-none">
+            {/* Right 5 Columns: Unobstructed Dual Real-Ground Operations Showcase */}
+            <div className="lg:col-span-5">
+              <div className="relative mx-auto max-w-lg lg:max-w-none space-y-4">
 
-                {/* Primary Real Ground Photo (Farm Inspection / Agronomist Verification) */}
-                <div className="relative h-[380px] sm:h-[440px] w-full rounded-3xl overflow-hidden shadow-2xl border-2 border-white bg-[#141E18]">
+                {/* Primary Card: Real Ground Farm Crop Inspection (Center-crop framing, zero sky clutter) */}
+                <div className="group relative h-[300px] sm:h-[340px] w-full rounded-3xl overflow-hidden shadow-xl border-2 border-white bg-[#141E18]">
                   <Image
                     src="/gallery/FarmVisit.jpg"
                     alt="New India Export Ground Farm Quality Verification in Maharashtra"
                     fill
                     sizes="(max-width: 1024px) 100vw, 480px"
-                    className="object-cover object-top"
+                    className="object-cover object-[50%_54%] group-hover:scale-103 transition-transform duration-700 ease-out"
                   />
-                  {/* Subtle luxury photo vignette */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                  {/* Balanced gradient scrim keeping caption crystal clear */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10 pointer-events-none" />
 
-                  {/* Bottom Text Over Photo */}
-                  <div className="absolute bottom-5 left-5 right-5 text-white space-y-1 z-10">
-                    <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#F58220]">
-                      <Sparkles size={12} />
-                      <span>Direct Farm Sourcing</span>
-                    </div>
-                    <h3 className="text-base sm:text-lg font-bold font-heading leading-tight drop-shadow-md text-white">
+                  {/* Top floating verification chip */}
+                  <div className="absolute top-3.5 left-4 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-[10px] font-bold uppercase tracking-wider text-white">
+                    <Sparkles size={11} className="text-[#F58220]" />
+                    <span>Direct Farm Sourcing</span>
+                  </div>
+
+                  {/* Clean unobstructed bottom caption */}
+                  <div className="absolute bottom-4 left-5 right-5 text-white space-y-1 z-10">
+                    <h3 className="text-base sm:text-lg font-bold font-heading leading-snug drop-shadow-md text-white">
                       On-Field Crop Inspection &amp; Quality Grading
                     </h3>
-                    <p className="text-[11px] sm:text-xs text-white/85 line-clamp-2 pt-0.5 font-light">
+                    <p className="text-xs text-white/85 leading-relaxed line-clamp-2 font-normal">
                       Agronomists inspect moisture and purity across Vidarbha &amp; Central India farming clusters before container dispatch.
                     </p>
                   </div>
                 </div>
 
-                {/* Overlaid Secondary Real Photo Card (Actual ICD MIHAN Container Dry Port Railhead) */}
-                <div className="absolute -bottom-8 -left-4 sm:-left-6 w-56 sm:w-64 rounded-2xl overflow-hidden shadow-2xl border-2 border-white bg-white z-20 group">
-                  <div className="relative h-28 sm:h-32 w-full">
+                {/* Secondary Companion Card: ICD MIHAN Container Dry Port Railhead (Zero overlap) */}
+                <div className="group rounded-2xl bg-white p-3 sm:p-3.5 border border-black/[0.07] shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+                  <div className="relative w-full sm:w-40 h-36 sm:h-28 rounded-xl overflow-hidden bg-[#141E18] shrink-0">
                     <Image
                       src="/gallery/ICDMihan.jpg"
                       alt="Nagpur ICD MIHAN Container Dry Port Railhead"
                       fill
-                      sizes="260px"
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      sizes="240px"
+                      className="object-cover object-[50%_20%] group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                    <div className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-sm text-[9px] font-bold text-white uppercase tracking-wider flex items-center gap-1 border border-white/20">
+                    <div className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/65 backdrop-blur-sm text-[9px] font-bold text-white uppercase tracking-wider flex items-center gap-1 border border-white/20">
                       <Ship size={10} className="text-[#84E07B]" />
                       <span>ICD MIHAN</span>
                     </div>
-                    <div className="absolute bottom-2 left-2.5 right-2.5 text-white">
-                      <span className="text-[11px] font-bold leading-tight block drop-shadow-xs">Multi-Modal Rail Logistics</span>
-                      <span className="text-[9px] text-white/85 block">Direct Rail to JNPT / Nhava Sheva</span>
-                    </div>
                   </div>
-                  <div className="p-2.5 bg-white flex items-center justify-between text-[11px]">
-                    <span className="font-extrabold text-[#006B35] flex items-center gap-1">
-                      <CheckCircle2 size={12} className="text-[#006B35]" />
-                      APEDA Licensed
-                    </span>
-                    <span className="text-[10px] text-[#686F6B] font-semibold">Dry Port Hub</span>
+
+                  <div className="flex-1 min-w-0 flex flex-col justify-between space-y-2 px-0.5">
+                    <div className="space-y-1">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#F58220] block">
+                        Zero-Mile Rail Gateway
+                      </span>
+                      <h4 className="text-sm sm:text-[15px] font-bold font-heading text-[#0D1F14] leading-snug">
+                        Multi-Modal Rail Logistics
+                      </h4>
+                      <p className="text-xs text-[#5A6660] leading-snug">
+                        Direct Rail Dispatch to JNPT / Nhava Sheva &amp; Mundra Ports
+                      </p>
+                    </div>
+
+                    <div className="pt-1.5 border-t border-black/[0.06] flex items-center justify-between text-[11px]">
+                      <span className="font-bold text-[#006B35] flex items-center gap-1">
+                        <CheckCircle2 size={12} className="text-[#006B35]" />
+                        APEDA Licensed
+                      </span>
+                      <span className="text-[10px] text-[#686F6B] font-semibold uppercase tracking-wide">
+                        Dry Port Hub
+                      </span>
+                    </div>
                   </div>
                 </div>
 
@@ -476,7 +601,7 @@ export default function Hero() {
           Exact 1:1 match to reference design using user-uploaded artwork (/showcase-bg.jpg)
          ========================================================================= */}
       <section className="relative w-full bg-[#FBF6EF] pt-8 sm:pt-12 lg:pt-14 pb-16 sm:pb-20 lg:pb-24 overflow-hidden">
-        
+
         {/* Authentic Reference Design Background Artwork (Desktop & Large screens - Ultra High Definition 2K) */}
         <div className="absolute inset-0 z-0 pointer-events-none select-none hidden lg:block">
           <Image
@@ -514,16 +639,16 @@ export default function Hero() {
           {/* Section Header with Authority & Trust Markers */}
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div className="space-y-3 max-w-2xl">
-              
+
               {/* Dual-Segment Orange-Bordered Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFBF5] border border-[#F58220]/45 shadow-2xs">
-                <span className="flex items-center gap-1.5 text-[#006B35] font-bold text-[11px] uppercase tracking-wider">
-                  <Globe2 size={13} className="text-[#F58220]" />
-                  <span>Direct From India's Agricultural Heartlands</span>
+              <div className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 px-3.5 py-1.5 rounded-2xl sm:rounded-full bg-[#FFFBF5] border border-[#F58220]/45 shadow-2xs">
+                <span className="flex items-center gap-1.5 text-[#006B35] font-bold text-[10px] sm:text-[11px] uppercase tracking-wider">
+                  <Globe2 size={13} className="text-[#F58220] shrink-0" />
+                  <span>Direct From India&apos;s Agricultural Heartlands</span>
                 </span>
-                <span className="text-[#F58220]/40 font-light">|</span>
-                <span className="flex items-center gap-1.5 text-[#006B35] font-bold text-[11px] uppercase tracking-wider">
-                  <ShieldCheck size={13} className="text-[#006B35]" />
+                <span className="hidden sm:inline text-[#F58220]/40 font-light">|</span>
+                <span className="flex items-center gap-1.5 text-[#006B35] font-bold text-[10px] sm:text-[11px] uppercase tracking-wider">
+                  <ShieldCheck size={13} className="text-[#006B35] shrink-0" />
                   <span>APEDA & FSSAI Certified</span>
                 </span>
               </div>
@@ -556,222 +681,100 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* 4 Premium Photographic Category Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-
-            {/* 1. Spices & Herbs */}
-            <Link
-              href="/spices"
-              className="group bg-white rounded-2xl overflow-hidden border border-black/[0.06] hover:border-[#006B35]/40 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1.5 flex flex-col justify-between"
-            >
-              <div>
-                {/* Photo Banner with Top Floating Badges */}
-                <div className="relative h-40 sm:h-44 w-full overflow-hidden bg-gray-100">
-                  <Image
-                    src="/Spices.jpg"
-                    alt="Export Spices and Whole Herbs"
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
-                  />
-                </div>
-
-                {/* Card Body */}
-                <div className="p-5 space-y-2.5">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#F58220] block">
-                    SPICES BOARD CERTIFIED
-                  </span>
-                  <h3 className="text-lg font-bold font-heading text-[#18201B] group-hover:text-[#006B35] transition-colors leading-tight">
-                    Spices & Herbs
-                  </h3>
-                  <p className="text-xs text-[#556059] leading-relaxed line-clamp-3">
-                    High-curcumin Turmeric, Guntur Red Chilli, Malabar Cardamom, Cumin & premium Indian spices sourcing from certified clusters.
-                  </p>
-
-                  {/* Key Product Tags (Rounded Beige Chips) */}
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {["Turmeric", "Red Chilli", "Cumin", "Cardamom"].map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-0.5 rounded-full bg-[#FBF6EF] border border-[#EBE4D8] text-[10px] font-medium text-[#556059]"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+          {/* 4 Premium Photographic Category Cards (2 columns on mobile, 4 on desktop) */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
+            {[
+              {
+                href: "/spices",
+                img: "/Spices.jpg",
+                alt: "Export Spices and Whole Herbs",
+                badge: "SPICES BOARD CERTIFIED",
+                title: "Spices & Herbs",
+                desc: "High-curcumin Turmeric, Guntur Red Chilli, Malabar Cardamom, Cumin & premium Indian spices sourcing from certified clusters.",
+                tags: ["Turmeric", "Red Chilli", "Cumin", "Cardamom"],
+                cta: "Explore Spices Catalog",
+              },
+              {
+                href: "/cerealsandpulses",
+                img: "/Pulses.jpg",
+                alt: "Export Cereals and Pulses",
+                badge: "APEDA REGISTERED",
+                title: "Cereals & Pulses",
+                desc: "Premium-grade 1121 & Traditional Basmati rice, high-protein export wheat, sorghum (jowar), and protein-rich pulses in bulk container loads.",
+                tags: ["Basmati Rice", "Wheat", "Jowar", "Pulses"],
+                cta: "Explore Grain Catalog",
+              },
+              {
+                href: "/fruitsandvegetables",
+                img: "/Veg1.jpg",
+                alt: "Fresh Produce and Fruits",
+                badge: "FARM-GATE HARVEST",
+                title: "Fresh Produce",
+                desc: "GI-tagged Nagpur oranges, Ratnagiri Alphonso mangoes, Lush pomegranates & other exotic fruits, fresh from accredited farms.",
+                tags: ["Nagpur Orange", "Alphonso", "Red Onions", "Lemons"],
+                cta: "Explore Fresh Produce",
+              },
+              {
+                href: "/organicfood",
+                img: "/Organic.jpg",
+                alt: "Certified Organic Foods",
+                badge: "CHEMICAL-FREE",
+                title: "Organic Foods",
+                desc: "Certified pesticide-free organic wheat, medicinal natural jaggery blocks, herbs, moringa powder, and organic pulses with complete traceability.",
+                tags: ["Organic Wheat", "Natural Jaggery", "Moringa", "Millets"],
+                cta: "Explore Organic Catalog",
+              },
+            ].map((card) => (
+              <Link
+                key={card.href}
+                href={card.href}
+                className="group bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-black/[0.06] hover:border-[#006B35]/40 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1.5 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="relative h-28 sm:h-44 w-full overflow-hidden bg-gray-100">
+                    <Image
+                      src={card.img}
+                      alt={card.alt}
+                      fill
+                      sizes="(max-width: 1024px) 50vw, 25vw"
+                      className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
+                    />
+                  </div>
+                  <div className="p-3 sm:p-5 space-y-1.5 sm:space-y-2.5">
+                    <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#F58220] block leading-tight">
+                      {card.badge}
+                    </span>
+                    <h3 className="text-sm sm:text-lg font-bold font-heading text-[#18201B] group-hover:text-[#006B35] transition-colors leading-tight">
+                      {card.title}
+                    </h3>
+                    <p className="text-[11px] sm:text-xs text-[#556059] leading-relaxed line-clamp-2 sm:line-clamp-3">
+                      {card.desc}
+                    </p>
+                    <div className="flex flex-wrap gap-1 sm:gap-1.5 pt-0.5 sm:pt-1">
+                      {card.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-1.5 sm:px-2 py-0.5 rounded-full bg-[#FBF6EF] border border-[#EBE4D8] text-[9px] sm:text-[10px] font-medium text-[#556059]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Action Footer */}
-              <div className="px-5 pb-5 pt-1 flex items-center justify-between text-xs font-bold text-[#18201B] group-hover:text-[#006B35] transition-colors">
-                <span>Explore Spices Catalog</span>
-                <span className="w-6 h-6 rounded-full bg-[#EAF5EC] group-hover:bg-[#006B35] text-[#006B35] group-hover:text-white flex items-center justify-center text-xs transition-colors shadow-2xs">
-                  →
-                </span>
-              </div>
-            </Link>
-
-            {/* 2. Cereals & Pulses */}
-            <Link
-              href="/cerealsandpulses"
-              className="group bg-white rounded-2xl overflow-hidden border border-black/[0.06] hover:border-[#006B35]/40 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1.5 flex flex-col justify-between"
-            >
-              <div>
-                {/* Photo Banner with Top Floating Badges */}
-                <div className="relative h-40 sm:h-44 w-full overflow-hidden bg-gray-100">
-                  <Image
-                    src="/Pulses.jpg"
-                    alt="Export Cereals and Pulses"
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
-                  />
-                </div>
-
-                {/* Card Body */}
-                <div className="p-5 space-y-2.5">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#F58220] block">
-                    APEDA REGISTERED
+                <div className="px-3 sm:px-5 pb-3 sm:pb-5 pt-1 flex items-center justify-between gap-1.5 text-[11px] sm:text-xs font-bold text-[#18201B] group-hover:text-[#006B35] transition-colors">
+                  <span className="leading-tight">{card.cta}</span>
+                  <span className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 rounded-full bg-[#EAF5EC] group-hover:bg-[#006B35] text-[#006B35] group-hover:text-white flex items-center justify-center text-[10px] sm:text-xs transition-colors shadow-2xs">
+                    →
                   </span>
-                  <h3 className="text-lg font-bold font-heading text-[#18201B] group-hover:text-[#006B35] transition-colors leading-tight">
-                    Cereals & Pulses
-                  </h3>
-                  <p className="text-xs text-[#556059] leading-relaxed line-clamp-3">
-                    Premium-grade 1121 & Traditional Basmati rice, high-protein export wheat, sorghum (jowar), and protein-rich pulses in bulk container loads.
-                  </p>
-
-                  {/* Key Product Tags (Rounded Beige Chips) */}
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {["Basmati Rice", "Wheat", "Jowar", "Pulses"].map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-0.5 rounded-full bg-[#FBF6EF] border border-[#EBE4D8] text-[10px] font-medium text-[#556059]"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
                 </div>
-              </div>
-
-              {/* Action Footer */}
-              <div className="px-5 pb-5 pt-1 flex items-center justify-between text-xs font-bold text-[#18201B] group-hover:text-[#006B35] transition-colors">
-                <span>Explore Grain Catalog</span>
-                <span className="w-6 h-6 rounded-full bg-[#EAF5EC] group-hover:bg-[#006B35] text-[#006B35] group-hover:text-white flex items-center justify-center text-xs transition-colors shadow-2xs">
-                  →
-                </span>
-              </div>
-            </Link>
-
-            {/* 3. Fresh Produce */}
-            <Link
-              href="/fruitsandvegetables"
-              className="group bg-white rounded-2xl overflow-hidden border border-black/[0.06] hover:border-[#006B35]/40 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1.5 flex flex-col justify-between"
-            >
-              <div>
-                {/* Photo Banner with Top Floating Badges */}
-                <div className="relative h-40 sm:h-44 w-full overflow-hidden bg-gray-100">
-                  <Image
-                    src="/Veg1.jpg"
-                    alt="Fresh Produce and Fruits"
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
-                  />
-                </div>
-
-                {/* Card Body */}
-                <div className="p-5 space-y-2.5">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#F58220] block">
-                    FARM-GATE HARVEST
-                  </span>
-                  <h3 className="text-lg font-bold font-heading text-[#18201B] group-hover:text-[#006B35] transition-colors leading-tight">
-                    Fresh Produce
-                  </h3>
-                  <p className="text-xs text-[#556059] leading-relaxed line-clamp-3">
-                    GI-tagged Nagpur oranges, Ratnagiri Alphonso mangoes, Lush pomegranates & other exotic fruits, fresh from accredited farms.
-                  </p>
-
-                  {/* Key Product Tags (Rounded Beige Chips) */}
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {["Nagpur Orange", "Alphonso", "Red Onions", "Lemons"].map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-0.5 rounded-full bg-[#FBF6EF] border border-[#EBE4D8] text-[10px] font-medium text-[#556059]"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Action Footer */}
-              <div className="px-5 pb-5 pt-1 flex items-center justify-between text-xs font-bold text-[#18201B] group-hover:text-[#006B35] transition-colors">
-                <span>Explore Fresh Produce</span>
-                <span className="w-6 h-6 rounded-full bg-[#EAF5EC] group-hover:bg-[#006B35] text-[#006B35] group-hover:text-white flex items-center justify-center text-xs transition-colors shadow-2xs">
-                  →
-                </span>
-              </div>
-            </Link>
-
-            {/* 4. Organic Foods */}
-            <Link
-              href="/organicfood"
-              className="group bg-white rounded-2xl overflow-hidden border border-black/[0.06] hover:border-[#006B35]/40 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1.5 flex flex-col justify-between"
-            >
-              <div>
-                {/* Photo Banner with Top Floating Badges */}
-                <div className="relative h-40 sm:h-44 w-full overflow-hidden bg-gray-100">
-                  <Image
-                    src="/Organic.jpg"
-                    alt="Certified Organic Foods"
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
-                  />
-                </div>
-
-                {/* Card Body */}
-                <div className="p-5 space-y-2.5">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#F58220] block">
-                    CHEMICAL-FREE
-                  </span>
-                  <h3 className="text-lg font-bold font-heading text-[#18201B] group-hover:text-[#006B35] transition-colors leading-tight">
-                    Organic Foods
-                  </h3>
-                  <p className="text-xs text-[#556059] leading-relaxed line-clamp-3">
-                    Certified pesticide-free organic wheat, medicinal natural jaggery blocks, herbs, moringa powder, and organic pulses with complete traceability.
-                  </p>
-
-                  {/* Key Product Tags (Rounded Beige Chips) */}
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {["Organic Wheat", "Natural Jaggery", "Moringa", "Millets"].map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-0.5 rounded-full bg-[#FBF6EF] border border-[#EBE4D8] text-[10px] font-medium text-[#556059]"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Action Footer */}
-              <div className="px-5 pb-5 pt-1 flex items-center justify-between text-xs font-bold text-[#18201B] group-hover:text-[#006B35] transition-colors">
-                <span>Explore Organic Catalog</span>
-                <span className="w-6 h-6 rounded-full bg-[#EAF5EC] group-hover:bg-[#006B35] text-[#006B35] group-hover:text-white flex items-center justify-center text-xs transition-colors shadow-2xs">
-                  →
-                </span>
-              </div>
-            </Link>
-
+              </Link>
+            ))}
           </div>
 
           {/* Bottom 4-Pillar Feature Bar (Matches Reference Image Perfectly) */}
           <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-black/[0.06] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 divide-y sm:divide-y-0 lg:divide-x divide-black/[0.06]">
-            
+
             {/* Col 1 */}
             <div className="flex items-center gap-3.5 pt-2 sm:pt-0">
               <div className="w-11 h-11 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center shrink-0 border border-[#006B35]/15 shadow-2xs">

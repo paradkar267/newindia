@@ -75,7 +75,7 @@ export default function ContactPage() {
   return (
     <main className="flex flex-col min-h-screen bg-[#FBF6EF] text-[#202522]">
       {/* ==== HEADER SECTION ==== */}
-      <section className="relative w-full py-24 sm:py-32 lg:py-36 flex items-center justify-center text-center overflow-hidden bg-[#0A1A10] text-white">
+      <section className="relative w-full py-16 sm:py-28 lg:py-36 flex items-center justify-center text-center overflow-hidden bg-[#0A1A10] text-white">
         <Image
           src="/contact-hero-bg.png"
           alt="Contact New India Export - Global Trade Desk & Quality Office"
@@ -104,22 +104,24 @@ export default function ContactPage() {
       </section>
 
             {/* ==== CONTACT INFO & FORM SECTION ==== */}
-      <section className="relative py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#FBF6EF] overflow-hidden">
+      <section className="relative py-12 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#FBF6EF] overflow-hidden">
         {/* Subtle ambient lighting & pattern */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[450px] bg-gradient-to-b from-[#004B28]/[0.04] to-transparent pointer-events-none rounded-full blur-3xl" />
         <div className="absolute inset-0 bg-dot-pattern-light opacity-25 pointer-events-none" />
 
-        <div className="relative max-w-7xl mx-auto space-y-12">
+        <div className="relative max-w-7xl mx-auto space-y-10 sm:space-y-12">
           {/* Section Introduction Strip */}
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#006B35]/20 text-xs font-semibold shadow-xs">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#006B35]" />
+            <div className="inline-flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1 px-4 py-1.5 rounded-2xl sm:rounded-full bg-white/90 backdrop-blur-md border border-[#006B35]/20 text-xs font-semibold shadow-xs">
+              <span className="inline-flex items-center gap-2">
+                <span className="relative flex h-2 w-2 shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#006B35]" />
+                </span>
+                <span className="text-[#006B35] font-bold uppercase tracking-wider text-[11px] whitespace-nowrap">Central India Export Hub</span>
               </span>
-              <span className="text-[#006B35] font-bold uppercase tracking-wider text-[11px]">Central India Export Hub</span>
-              <span className="text-black/20 font-light">•</span>
-              <span className="text-[#4A554E] font-medium text-[11px]">Nagpur Agro-Corridor</span>
+              <span className="hidden sm:inline text-black/20 font-light">•</span>
+              <span className="text-[#4A554E] font-medium text-[11px] whitespace-nowrap">Nagpur Agro-Corridor</span>
             </div>
             
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111814] tracking-tight font-heading leading-tight">
@@ -154,25 +156,25 @@ export default function ContactPage() {
             
             {/* LEFT SIDE: Executive Corporate Presence Card (Deep Emerald Luxury Aesthetic) */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="lg:col-span-5 relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#003B20] via-[#004B28] to-[#042415] text-white p-7 sm:p-9 shadow-2xl border border-emerald-500/20 flex flex-col justify-between space-y-8"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: "some" }}
+              transition={{ duration: 0.35 }}
+              className="lg:col-span-5 relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#003B20] via-[#004B28] to-[#042415] text-white p-5 sm:p-9 shadow-2xl border border-emerald-500/20 flex flex-col justify-between space-y-6 sm:space-y-8"
             >
               {/* Subtle metallic amber glow */}
               <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#F58220]/15 rounded-full blur-3xl pointer-events-none" />
               <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
 
-              <div className="relative z-10 space-y-6">
+              <div className="relative z-10 space-y-5 sm:space-y-6">
                 {/* Header Tag & Title */}
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[#F58220] text-[11px] font-bold uppercase tracking-wider">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[#F58220] text-[10px] sm:text-[11px] font-bold uppercase tracking-wider whitespace-nowrap">
                       <Sparkles size={12} className="text-[#F58220]" />
                       <span>Corporate Export Desk</span>
                     </span>
-                    <span className="flex items-center gap-1.5 text-[11px] text-emerald-300 font-semibold bg-emerald-950/60 px-2.5 py-1 rounded-full border border-emerald-500/30">
+                    <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] text-emerald-300 font-semibold bg-emerald-950/60 px-2.5 py-1 rounded-full border border-emerald-500/30 whitespace-nowrap">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                       <span>Desk Active Now</span>
                     </span>
@@ -194,10 +196,10 @@ export default function ContactPage() {
                     <div className="p-2.5 rounded-xl bg-[#F58220]/20 text-[#F58220] shrink-0 mt-0.5">
                       <MapPin size={20} />
                     </div>
-                    <div className="space-y-1">
-                      <div className="flex items-center gap-2">
+                    <div className="space-y-1 min-w-0 flex-1">
+                      <div className="flex flex-wrap items-center gap-2">
                         <span className="text-xs font-bold text-white tracking-wide">Registered Head Office</span>
-                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-medium">Nagpur HQ</span>
+                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-medium whitespace-nowrap">Nagpur HQ</span>
                       </div>
                       <p className="text-xs text-white/80 leading-relaxed">
                         SHOP NO M02, Premium Plaza Commercial Complex, Dharampeth, Nagpur – 440010, Maharashtra, India
@@ -210,7 +212,7 @@ export default function ContactPage() {
                     <div className="p-2.5 rounded-xl bg-emerald-500/20 text-emerald-400 shrink-0 mt-0.5">
                       <Phone size={20} />
                     </div>
-                    <div className="space-y-1 flex-1">
+                    <div className="space-y-1 flex-1 min-w-0">
                       <span className="text-xs font-bold text-white tracking-wide block">Direct Commercial Trade Line</span>
                       <a
                         href="tel:+919028894149"
@@ -229,19 +231,19 @@ export default function ContactPage() {
                     <div className="p-2.5 rounded-xl bg-blue-500/20 text-blue-300 shrink-0 mt-0.5">
                       <Mail size={20} />
                     </div>
-                    <div className="space-y-1 flex-1">
+                    <div className="space-y-1 flex-1 min-w-0">
                       <span className="text-xs font-bold text-white tracking-wide block">Official Commercial Correspondence</span>
                       <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
                         <a
                           href="mailto:eximnewindia@gmail.com"
-                          className="text-xs sm:text-sm font-semibold text-emerald-300 hover:text-white transition-colors"
+                          className="text-xs sm:text-sm font-semibold text-emerald-300 hover:text-white transition-colors break-all sm:break-normal"
                         >
                           eximnewindia@gmail.com
                         </a>
                         <span className="hidden sm:inline text-white/40">•</span>
                         <a
                           href="mailto:Newindexport@gmail.com"
-                          className="text-xs text-white/70 hover:text-white transition-colors"
+                          className="text-xs text-white/70 hover:text-white transition-colors break-all sm:break-normal"
                         >
                           Newindexport@gmail.com
                         </a>
@@ -255,12 +257,12 @@ export default function ContactPage() {
                 </div>
 
                 {/* Accreditations Row */}
-                <div className="p-3.5 rounded-2xl bg-black/25 border border-white/10 flex items-center justify-between text-[11px] text-white/80">
-                  <div className="flex items-center gap-1.5 font-bold text-emerald-300">
+                <div className="p-3.5 rounded-2xl bg-black/25 border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[11px] text-white/80">
+                  <div className="flex items-center gap-1.5 font-bold text-emerald-300 shrink-0">
                     <ShieldCheck size={14} className="text-[#F58220]" />
                     <span>Accreditations:</span>
                   </div>
-                  <div className="flex items-center gap-2 text-white/90 font-medium">
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-white/90 font-medium">
                     <span>IEC</span>
                     <span>•</span>
                     <span>APEDA</span>
@@ -280,9 +282,9 @@ export default function ContactPage() {
                   href="https://wa.me/919028894149?text=Hello%20New%20India%20Export%2C%20I%20am%20inquiring%20about%20your%20export%20commodities."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2.5 py-4 px-5 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#25D366]/25 hover:shadow-xl hover:shadow-[#25D366]/35 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 sm:py-4 px-4 sm:px-5 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs sm:text-base shadow-lg shadow-[#25D366]/25 hover:shadow-xl hover:shadow-[#25D366]/35 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] text-center"
                 >
-                  <MessageCircle size={20} className="fill-current" />
+                  <MessageCircle size={18} className="fill-current shrink-0" />
                   <span>Instant WhatsApp Trade Desk (Chat Live)</span>
                 </a>
               </div>
@@ -290,11 +292,11 @@ export default function ContactPage() {
 
             {/* RIGHT SIDE: Luxury Interactive RFQ Enquiry Portal */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="lg:col-span-7 bg-white rounded-3xl shadow-xl hover:shadow-2xl p-7 sm:p-10 border border-black/[0.08] flex flex-col justify-between transition-all duration-300"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: "some" }}
+              transition={{ duration: 0.35 }}
+              className="lg:col-span-7 bg-white rounded-3xl shadow-xl hover:shadow-2xl p-5 sm:p-10 border border-black/[0.08] flex flex-col justify-between transition-all duration-300"
             >
               {submitted ? (
                 <div className="py-16 text-center space-y-5 my-auto">
@@ -447,7 +449,7 @@ export default function ContactPage() {
 
                   {/* Message / Specifications */}
                   <div className="space-y-1.5">
-                    <label className="text-[11px] font-bold text-[#18201B] uppercase tracking-wider flex items-center justify-between">
+                    <label className="text-[11px] font-bold text-[#18201B] uppercase tracking-wider flex flex-wrap items-center justify-between gap-1">
                       <span>Message / Specifications *</span>
                       <span className="text-[10px] text-[#686F6B] font-normal normal-case">Tonnage, packaging & Incoterms</span>
                     </label>

@@ -67,7 +67,7 @@ export default function CantonFairEventPage() {
     <div className="bg-[#FBF6EF] text-[#202522] min-h-screen">
 
       {/* HERO SECTION */}
-      <section className="relative w-full py-20 sm:py-24 flex items-center justify-center text-center overflow-hidden bg-[#004B28] text-white">
+      <section className="relative w-full py-14 sm:py-24 flex items-center justify-center text-center overflow-hidden bg-[#004B28] text-white">
         <Image 
           src="/canton-fair-bg.jpg"
           alt="Canton Fair 2026 Delegation"
@@ -139,12 +139,12 @@ export default function CantonFairEventPage() {
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+          <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3 pt-2 max-w-sm sm:max-w-none mx-auto">
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-7 py-3 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white font-bold flex items-center gap-2 shadow-sm text-sm"
+              className="w-full sm:w-auto px-7 py-3 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white font-bold flex items-center justify-center gap-2 shadow-sm text-sm"
             >
               <MessageCircle size={18} />
               <span>Register on WhatsApp</span>
@@ -154,7 +154,7 @@ export default function CantonFairEventPage() {
               href={webinarBrochureUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-3 rounded-full border border-neutral-300 hover:border-[#006B35] bg-white text-[#202522] text-xs sm:text-sm font-semibold flex items-center gap-2 transition-colors"
+              className="w-full sm:w-auto px-5 py-3 rounded-full border border-neutral-300 hover:border-[#006B35] bg-white text-[#202522] text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-colors"
             >
               <Download size={14} className="text-[#006B35]" />
               <span>Webinar Brochure (PDF)</span>
@@ -164,7 +164,7 @@ export default function CantonFairEventPage() {
               href={tourBrochureUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-3 rounded-full border border-neutral-300 hover:border-[#006B35] bg-white text-[#202522] text-xs sm:text-sm font-semibold flex items-center gap-2 transition-colors"
+              className="w-full sm:w-auto px-5 py-3 rounded-full border border-neutral-300 hover:border-[#006B35] bg-white text-[#202522] text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition-colors"
             >
               <Download size={14} className="text-[#F58220]" />
               <span>Tour Brochure (PDF)</span>

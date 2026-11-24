@@ -56,7 +56,6 @@ export default function TrustSection() {
           src="/services/services-bg.png"
           alt="Core Capabilities & Export Services - New India Export"
           fill
-          priority
           quality={100}
           unoptimized
           className="object-cover object-bottom"
@@ -68,7 +67,7 @@ export default function TrustSection() {
       <div className="absolute top-0 inset-x-0 h-16 sm:h-24 bg-gradient-to-b from-[#FBF6EF] via-[#FBF6EF]/60 to-transparent pointer-events-none z-1" />
       <div className="absolute bottom-0 inset-x-0 h-20 sm:h-32 bg-gradient-to-t from-[#FBF6EF] via-[#FBF6EF]/60 to-transparent pointer-events-none z-1" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-12 relative z-10">
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EAF5EC] border border-[#006B35]/25 text-[#006B35] text-[11px] font-bold uppercase tracking-wider shadow-2xs">
@@ -85,56 +84,56 @@ export default function TrustSection() {
           </p>
         </div>
 
-        {/* 4 Service Cards Grid (Matching Exact Mockup) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 4 Service Cards Grid (2 columns on mobile, 4 on desktop) */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true, amount: "some" }}
+              transition={{ duration: 0.45, delay: index * 0.08 }}
               whileHover={{ y: -6 }}
-              className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl border border-black/[0.06] hover:border-[#006B35]/25 flex flex-col justify-between transition-all duration-300 group"
+              className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-md hover:shadow-2xl border border-black/[0.06] hover:border-[#006B35]/25 flex flex-col justify-between transition-all duration-300 group"
             >
               {/* Upper Text Content */}
-              <div className="p-5 sm:p-6 space-y-3.5 flex-1 flex flex-col justify-between">
-                <div className="space-y-3">
+              <div className="p-3.5 sm:p-6 space-y-2.5 sm:space-y-3.5 flex-1 flex flex-col justify-between">
+                <div className="space-y-2 sm:space-y-3">
                   {/* Icon Box */}
-                  <div className={`w-11 h-11 rounded-2xl flex items-center justify-center border shadow-2xs ${service.iconBg}`}>
+                  <div className={`w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl flex items-center justify-center border shadow-2xs ${service.iconBg}`}>
                     {service.icon}
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-base sm:text-lg font-extrabold font-heading text-[#0A381E] group-hover:text-[#006B35] transition-colors leading-snug">
+                  <h3 className="text-sm sm:text-lg font-extrabold font-heading text-[#0A381E] group-hover:text-[#006B35] transition-colors leading-snug">
                     {service.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-xs text-[#556059] leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-[#556059] leading-relaxed line-clamp-3 sm:line-clamp-none">
                     {service.desc}
                   </p>
                 </div>
 
                 {/* Learn More Link */}
-                <div className="pt-2">
+                <div className="pt-1 sm:pt-2">
                   <Link
                     href={service.link}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#006B35] hover:text-[#004B28] transition-colors"
+                    className="inline-flex items-center gap-1 sm:gap-1.5 text-[11px] sm:text-xs font-bold text-[#006B35] hover:text-[#004B28] transition-colors"
                   >
                     <span>Learn More</span>
-                    <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
 
-              {/* Bottom Image with Orange Curved Wave Overlay (Matching Exact Reference) */}
-              <div className="relative h-32 sm:h-36 w-full overflow-hidden mt-2 bg-[#F7F6F2]">
+              {/* Bottom Image with Orange Curved Wave Overlay */}
+              <div className="relative h-24 sm:h-36 w-full overflow-hidden mt-1 sm:mt-2 bg-[#F7F6F2]">
                 <Image
                   src={service.img}
                   alt={service.title}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  sizes="(max-width: 1024px) 50vw, 25vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
 
@@ -142,7 +141,7 @@ export default function TrustSection() {
                 <svg
                   viewBox="0 0 400 45"
                   fill="none"
-                  className="absolute top-0 left-0 w-full h-7 sm:h-8 z-10 pointer-events-none drop-shadow-2xs"
+                  className="absolute top-0 left-0 w-full h-5 sm:h-8 z-10 pointer-events-none drop-shadow-2xs"
                   preserveAspectRatio="none"
                 >
                   <path d="M0,0 L400,0 L400,8 C280,14 130,38 0,32 Z" fill="#ffffff" />

@@ -60,7 +60,7 @@ export default function SpicesPage() {
   return (
     <main className="flex flex-col min-h-screen bg-[#FBF6EF] text-[#18201B]">
       {/* ==== HERO SECTION ==== */}
-      <section className="relative w-full overflow-hidden bg-[#FBF6EF] pt-24 sm:pt-28 md:pt-32 pb-14 sm:pb-18 lg:pb-24 border-b border-black/[0.05]">
+      <section className="relative w-full min-h-[380px] sm:min-h-[400px] lg:min-h-[440px] flex items-center overflow-hidden bg-[#FBF6EF] py-8 sm:py-12 lg:py-14 border-b border-black/[0.05]">
         {/* Authentic Reference Design Background Artwork */}
         <div className="absolute inset-0 z-0 pointer-events-none select-none">
           <Image
@@ -73,9 +73,11 @@ export default function SpicesPage() {
             className="object-cover object-center"
             sizes="100vw"
           />
+          {/* Mobile ivory scrim so description stays crisp over spice bowls */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FBF6EF]/92 via-[#FBF6EF]/75 to-[#FBF6EF]/20 md:bg-none pointer-events-none" />
         </div>
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl space-y-4 sm:space-y-5">
             {/* Top Pill Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF5EC] border border-[#006B35]/25 text-[#006B35] text-[11px] font-bold uppercase tracking-wider shadow-2xs">
@@ -93,27 +95,6 @@ export default function SpicesPage() {
             <p className="text-sm sm:text-base md:text-[17px] text-[#556059] leading-relaxed max-w-xl font-normal">
               Discover India&apos;s finest spices — renowned for natural volatile oil concentration, intense aroma, and verifiable purity.
             </p>
-
-            {/* CTA Buttons Row */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-2">
-              <a
-                href="#catalog"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#004B28] hover:bg-[#003B20] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all"
-              >
-                <span>Explore Our Spices</span>
-                <ArrowRight size={14} />
-              </a>
-
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white hover:bg-neutral-50 text-[#18201B] border border-black/[0.1] text-xs sm:text-sm font-semibold shadow-xs transition-all"
-              >
-                <span className="w-5 h-5 rounded-full bg-[#004B28] text-white flex items-center justify-center text-[10px]">
-                  ▶
-                </span>
-                <span>Our Quality</span>
-              </Link>
-            </div>
           </div>
         </div>
       </section>
@@ -141,25 +122,26 @@ export default function SpicesPage() {
           <Image src="/spices/leaves-right.png" alt="Decorative leaf" fill className="object-contain" />
         </div>
 
-        <div className="max-w-6xl mx-auto space-y-10 sm:space-y-12 relative z-10">
-          {spices.map((item, i) => (
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-7 relative z-10">
+          {spices.map((item) => (
             <motion.div
               key={item.name}
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: "some" }}
               transition={{ duration: 0.45 }}
-              className="flex flex-col lg:flex-row items-center gap-8 lg:gap-10 bg-white rounded-3xl p-6 sm:p-8 lg:p-9 border border-black/[0.06] shadow-sm hover:shadow-xl transition-all duration-300 group"
+              className="flex flex-col justify-between bg-white rounded-3xl overflow-hidden border border-black/[0.07] shadow-sm hover:shadow-xl hover:border-[#006B35]/20 transition-all duration-300 group hover:-translate-y-1"
             >
-              {/* Product Image (Uniform Left Side in List Form) */}
-              <div className="relative w-full lg:w-[44%] xl:w-[40%] h-64 sm:h-72 lg:h-80 rounded-2xl overflow-hidden bg-[#F7F6F2] shadow-inner shrink-0">
+              {/* Product Image Frame */}
+              <div className="relative w-full h-56 sm:h-64 overflow-hidden bg-[#F7F6F2] border-b border-black/[0.05] shrink-0">
                 <Image
                   src={item.img}
                   alt={item.name}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 500px"
+                  sizes="(max-width: 768px) 100vw, 560px"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                 {/* Single Clean Floating Grade Badge */}
                 <div className="absolute top-3.5 left-3.5 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-bold text-[#006B35] shadow-xs flex items-center gap-1.5 border border-black/[0.04]">
                   <Leaf size={13} className="text-[#006B35]" />
@@ -167,30 +149,29 @@ export default function SpicesPage() {
                 </div>
               </div>
 
-              {/* Description & Specs (Right Side in List Form) */}
-              <div className="w-full lg:w-[56%] xl:w-[60%] space-y-4">
-                <div className="space-y-1.5">
+              {/* Description & Actions */}
+              <div className="p-5 sm:p-7 flex-1 flex flex-col justify-between gap-5">
+                <div className="space-y-2.5">
                   <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#F58220]">
                     <span className="w-5 h-[2px] bg-[#F58220] rounded-full inline-block" />
                     <span>EXPORT SPECIFICATION</span>
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-[#111814] font-heading tracking-tight">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#111814] font-heading tracking-tight group-hover:text-[#006B35] transition-colors">
                     {item.name}
                   </h3>
+                  <p className="text-sm sm:text-[15px] text-[#556059] leading-relaxed font-normal">
+                    {item.desc}
+                  </p>
                 </div>
 
-                <p className="text-sm sm:text-[15px] text-[#556059] leading-relaxed font-normal">
-                  {item.desc}
-                </p>
-
-                <div className="pt-2 flex flex-wrap items-center gap-3">
+                <div className="pt-4 border-t border-black/[0.06] flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3">
                   <a
                     href={`https://wa.me/919028894149?text=Hello%20New%20India%20Export%2C%20I%20am%20interested%20in%20quotation%20for%20${encodeURIComponent(
                       item.name
                     )}.`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#004B28] hover:bg-[#003B20] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:py-3 rounded-full bg-[#004B28] hover:bg-[#003B20] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all"
                   >
                     <ExternalLink size={14} />
                     <span>Enquire for {item.name.split(" ")[0]}</span>
@@ -198,7 +179,7 @@ export default function SpicesPage() {
 
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-1.5 px-5 py-3 rounded-full bg-white hover:bg-neutral-50 text-[#18201B] border border-black/[0.12] text-xs sm:text-sm font-semibold transition-colors shadow-2xs"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-5 py-2.5 sm:py-3 rounded-full bg-white hover:bg-neutral-50 text-[#18201B] border border-black/[0.12] text-xs sm:text-sm font-semibold transition-colors shadow-2xs"
                   >
                     <span>Request Spec Sheet</span>
                     <ArrowRight size={14} />
@@ -212,7 +193,7 @@ export default function SpicesPage() {
 
       {/* ==== BOTTOM VISUAL ACCENT BANNER ==== */}
       <section 
-        className="relative w-full min-h-[160px] sm:min-h-[220px] md:min-h-[260px] lg:min-h-[290px] overflow-hidden bg-[#FBF6EF]"
+        className="relative w-full min-h-[115px] sm:min-h-[220px] md:min-h-[260px] lg:min-h-[290px] overflow-hidden bg-[#004B28]"
         style={{ aspectRatio: "1205 / 275" }}
       >
         <Image
@@ -224,8 +205,8 @@ export default function SpicesPage() {
           className="object-cover object-top pointer-events-none select-none"
           sizes="100vw"
         />
-        <div className="absolute inset-0 flex items-end pb-7 sm:pb-9 md:pb-11 max-w-6xl mx-auto px-6 sm:px-8">
-          <p className="text-white text-base sm:text-xl md:text-2xl font-serif italic tracking-wide drop-shadow-md">
+        <div className="absolute inset-0 flex items-end pb-2.5 sm:pb-9 md:pb-11 max-w-6xl mx-auto px-4 sm:px-8">
+          <p className="w-[65%] sm:w-auto text-white text-xs sm:text-xl md:text-2xl font-serif italic tracking-wide drop-shadow-md leading-tight">
             Bringing the Finest of India to the World.
           </p>
         </div>

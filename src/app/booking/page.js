@@ -412,7 +412,7 @@ export default function BookingPage() {
                     )}
                   </button>
 
-                  <div className="flex items-center justify-between text-xs text-[#686F6B] pt-1">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-[#686F6B] pt-1">
                     <a
                       href="/export-class-registration-form.pdf"
                       target="_blank"

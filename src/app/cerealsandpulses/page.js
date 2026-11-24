@@ -48,7 +48,7 @@ export default function CerealsAndPulsesPage() {
   return (
     <main className="flex flex-col min-h-screen bg-[#FBF6EF] text-[#18201B]">
       {/* ==== HERO SECTION ==== */}
-      <section className="relative w-full overflow-hidden bg-[#0A1A10] pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-24 md:pb-28">
+      <section className="relative w-full min-h-[380px] sm:min-h-[400px] lg:min-h-[440px] flex items-center overflow-hidden bg-[#0A1A10] py-8 sm:py-12 lg:py-14 border-b border-black/[0.05]">
         {/* Authentic Reference Design Background Artwork with Bottom Curved Wave */}
         <div className="absolute inset-0 z-0 pointer-events-none select-none">
           <Image
@@ -63,10 +63,10 @@ export default function CerealsAndPulsesPage() {
           />
         </div>
 
-        {/* Soft radial overlay on left side for crisp text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent pointer-events-none" />
+        {/* Stronger mobile overlay for crisp text readability over sunlit panicles */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/45 to-black/70 sm:bg-gradient-to-r sm:from-black/50 sm:via-black/20 sm:to-transparent pointer-events-none" />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-xl lg:max-w-2xl space-y-3 sm:space-y-4">
             {/* Top Pill Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white text-[11px] font-bold uppercase tracking-wider shadow-sm">
@@ -116,16 +116,16 @@ export default function CerealsAndPulsesPage() {
 
           {/* 2-Column Showcase (Exact Mockup Match) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-            {/* Left Column: Premium Basmati Cooked Bowl Image Card */}
+            {/* Left Column: Clean Premium Basmati Bowl Image Card */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="lg:col-span-6 relative rounded-3xl overflow-hidden shadow-md border border-black/[0.06] bg-[#F7F6F2] h-[260px] sm:h-[300px] lg:h-[320px] group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: "some" }}
+              transition={{ duration: 0.45 }}
+              className="lg:col-span-6 relative rounded-3xl overflow-hidden shadow-md border border-black/[0.06] bg-[#F7F6F2] min-h-[240px] sm:min-h-[300px] lg:h-full group"
             >
               <Image
-                src="/cereals/basmati-bowl.jpg"
+                src="/cereals/basmati.jpg"
                 alt="Sortex Cleaned 100% Pure Basmati Rice"
                 fill
                 sizes="(max-width: 1024px) 100vw, 600px"
@@ -135,30 +135,36 @@ export default function CerealsAndPulsesPage() {
 
             {/* Right Column: Modern Corporate Specifications Table */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: "some" }}
+              transition={{ duration: 0.45 }}
               className="lg:col-span-6 bg-white rounded-3xl overflow-hidden shadow-md border border-black/[0.06] flex flex-col justify-between"
             >
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse text-xs sm:text-sm">
                   <thead className="bg-[#004B28] text-white">
                     <tr>
-                      <th className="py-3 px-4 font-bold text-xs uppercase tracking-wider w-16 text-center">S. No.</th>
-                      <th className="py-3 px-4 font-bold text-xs uppercase tracking-wider">Crop / Variety</th>
-                      <th className="py-3 px-4 font-bold text-xs uppercase tracking-wider text-right sm:text-left">Minimum Order / MOQ</th>
+                      <th className="py-3 px-2.5 sm:px-4 font-bold text-[11px] sm:text-xs uppercase tracking-wider w-10 sm:w-16 text-center">
+                        <span className="sm:hidden">#</span>
+                        <span className="hidden sm:inline">S. No.</span>
+                      </th>
+                      <th className="py-3 px-2.5 sm:px-4 font-bold text-[11px] sm:text-xs uppercase tracking-wider">Crop / Variety</th>
+                      <th className="py-3 px-2.5 sm:px-4 font-bold text-[11px] sm:text-xs uppercase tracking-wider text-right sm:text-left whitespace-nowrap">
+                        <span className="sm:hidden">MOQ</span>
+                        <span className="hidden sm:inline">Minimum Order / MOQ</span>
+                      </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-black/[0.06]">
                     {displayedVarieties.map((item) => (
                       <tr key={item.no} className="hover:bg-[#EAF5EC]/40 transition-colors">
-                        <td className="py-2.5 px-4 font-bold text-[#686F6B] text-center">{item.no}</td>
-                        <td className="py-2.5 px-4 font-semibold text-[#18201B]">
+                        <td className="py-2.5 px-2.5 sm:px-4 font-bold text-[#686F6B] text-center">{item.no}</td>
+                        <td className="py-2.5 px-2.5 sm:px-4 font-semibold text-[#18201B]">
                           <span>{item.name}</span>
                         </td>
-                        <td className="py-2.5 px-4 font-bold text-[#006B35] text-right sm:text-left">
-                          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#EAF5EC] border border-[#006B35]/20 text-[11px] font-bold">
+                        <td className="py-2.5 px-2.5 sm:px-4 font-bold text-[#006B35] text-right sm:text-left">
+                          <span className="inline-flex items-center gap-1 px-2 sm:px-2.5 py-0.5 rounded-full bg-[#EAF5EC] border border-[#006B35]/20 text-[10px] sm:text-[11px] font-bold whitespace-nowrap">
                             <Leaf size={11} className="text-[#006B35]" />
                             <span>{item.moq}</span>
                           </span>
@@ -204,11 +210,11 @@ export default function CerealsAndPulsesPage() {
           </h3>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
           {nonBasmati.map((rice, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl p-4 border border-black/[0.06] shadow-xs text-center space-y-1 hover:border-[#006B35] hover:shadow-md transition-all group"
+              className="bg-white rounded-2xl p-3.5 sm:p-4 border border-black/[0.06] shadow-xs text-center space-y-1 hover:border-[#006B35] hover:shadow-md transition-all group last:col-span-2 sm:last:col-span-1 flex flex-col justify-center"
             >
               <div className="text-[10px] font-bold text-[#F58220] uppercase">Aromatic Grain</div>
               <h4 className="text-xs sm:text-sm font-bold text-[#18201B] group-hover:text-[#006B35] transition-colors">{rice}</h4>
@@ -229,40 +235,40 @@ export default function CerealsAndPulsesPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6">
           {otherItems.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-black/[0.06] flex flex-col justify-between group hover:-translate-y-1"
+              className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-[#006B35]/20 transition-all duration-300 border border-black/[0.07] flex flex-col justify-between group hover:-translate-y-1 h-full"
             >
-              <div className="relative h-44 sm:h-48 w-full bg-[#F7F6F2] overflow-hidden">
+              <div className="relative h-32 sm:h-48 w-full bg-[#F7F6F2] overflow-hidden border-b border-black/[0.05] shrink-0">
                 <Image
                   src={item.img}
                   alt={item.name}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  sizes="(max-width: 1024px) 50vw, 25vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
               </div>
 
-              <div className="p-5 space-y-3 flex-1 flex flex-col justify-between">
+              <div className="p-3.5 sm:p-5 space-y-2.5 sm:space-y-3 flex-1 flex flex-col justify-between">
                 <div>
-                  <h4 className="font-bold font-heading text-sm sm:text-base text-[#18201B] group-hover:text-[#006B35] transition-colors">
+                  <h4 className="font-bold font-heading text-xs sm:text-base text-[#18201B] group-hover:text-[#006B35] transition-colors leading-snug">
                     {item.name}
                   </h4>
-                  <p className="text-xs text-[#556059] mt-1 leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-[#556059] mt-1 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
 
-                <div className="pt-2 border-t border-black/[0.05]">
+                <div className="pt-2 border-t border-black/[0.06]">
                   <a
                     href={`https://wa.me/919028894149?text=Hello%20New%20India%20Export%2C%20I%20am%20inquiring%20about%20${encodeURIComponent(item.name)}.`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#006B35] hover:text-[#004B28] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-bold text-[#006B35] hover:text-[#004B28] transition-colors"
                   >
-                    <MessageCircle size={13} />
+                    <MessageCircle size={13} className="shrink-0" />
                     <span>Enquire Commodity →</span>
                   </a>
                 </div>

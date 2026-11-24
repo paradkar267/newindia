@@ -300,33 +300,22 @@ export default function Navbar() {
                 )}
               </div>
 
-              {/* Right Side: Orange "Book shipping" Button */}
-              <div className="hidden sm:flex items-center gap-2.5">
+              {/* Right Side Actions: Single responsive Book CTA + Tablet/Mobile Hamburger (< lg) */}
+              <div className="flex items-center gap-2 sm:gap-2.5">
                 <button
                   type="button"
                   onClick={() => setShippingOpen(true)}
-                  className="relative group inline-flex items-center gap-2 justify-center px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-[#F58220] hover:bg-[#E07216] text-white font-bold text-xs sm:text-sm tracking-wide shadow-md transition-all duration-200 active:scale-95 cursor-pointer"
+                  className="relative group inline-flex items-center gap-1.5 sm:gap-2 justify-center px-3.5 sm:px-5 lg:px-6 py-2 sm:py-2.5 lg:py-3 min-h-[38px] rounded-lg sm:rounded-xl bg-[#F58220] hover:bg-[#E07216] text-white font-bold text-xs sm:text-sm tracking-wide shadow-md transition-all duration-200 active:scale-95 cursor-pointer"
                 >
                   <Ship size={15} />
-                  <span>Book shipping</span>
-                </button>
-              </div>
-
-              {/* Mobile Hamburger Button */}
-              <div className="flex sm:hidden items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => setShippingOpen(true)}
-                  className="px-3 py-1.5 rounded-lg bg-[#F58220] text-white text-xs font-bold flex items-center gap-1.5 cursor-pointer"
-                >
-                  <Ship size={13} />
-                  <span>Book</span>
+                  <span className="sm:hidden">Book</span>
+                  <span className="hidden sm:inline">Book shipping</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => setMobileOpen(!mobileOpen)}
                   aria-label="Toggle navigation menu"
-                  className={`p-2 rounded-lg transition-colors ${
+                  className={`lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg transition-colors ${
                     isTransparent ? "text-white hover:bg-white/10" : "text-[#18201B] hover:bg-black/5"
                   }`}
                 >
@@ -359,13 +348,14 @@ export default function Navbar() {
               className="fixed top-0 right-0 z-50 h-full w-[85%] max-w-sm bg-white shadow-2xl flex flex-col justify-between lg:hidden"
             >
               <div className="p-4 border-b border-neutral-100 flex items-center justify-between bg-white text-[#18201B]">
-                <div className="flex items-center gap-2 px-1 py-1">
-                  <Image src="/logo.png" alt="New India Export Logo" width={105} height={88} className="object-contain" priority />
+                <div className="flex items-center gap-2 px-1 py-0.5">
+                  <Image src="/logo.png" alt="New India Export Logo" width={82} height={68} className="object-contain" priority />
                 </div>
                 <button
                   type="button"
                   onClick={() => setMobileOpen(false)}
-                  className="p-2 text-[#686F6B] hover:text-[#18201B] rounded-lg hover:bg-black/5"
+                  aria-label="Close navigation menu"
+                  className="min-w-[44px] min-h-[44px] flex items-center justify-center text-[#686F6B] hover:text-[#18201B] rounded-lg hover:bg-black/5"
                 >
                   <X size={22} />
                 </button>
@@ -401,14 +391,14 @@ export default function Navbar() {
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            className="pl-3 mt-1 space-y-1 border-l-2 border-[#006B35]/20 ml-2"
+                            className="overflow-hidden pl-3 mt-1 space-y-1 border-l-2 border-[#006B35]/20 ml-2"
                           >
                             {products.map((prod) => (
                               <Link
                                 key={prod.name}
                                 href={prod.path}
                                 onClick={() => setMobileOpen(false)}
-                                className="block px-3 py-2 rounded-lg text-sm font-medium text-[#333835] hover:text-[#006B35]"
+                                className="block px-3 py-2.5 rounded-lg text-sm font-medium text-[#333835] hover:text-[#006B35]"
                               >
                                 {prod.name}
                               </Link>
@@ -421,7 +411,7 @@ export default function Navbar() {
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            className="pl-3 mt-1 space-y-1 border-l-2 border-[#F58220]/30 ml-2"
+                            className="overflow-hidden pl-3 mt-1 space-y-1 border-l-2 border-[#F58220]/30 ml-2"
                           >
                             {brochures.map((b) =>
                               b.type === "download" ? (

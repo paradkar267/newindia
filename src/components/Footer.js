@@ -28,7 +28,7 @@ export default function Footer() {
         {/* Background decorative pattern */}
         <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-20 sm:pb-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-white/10">
             {/* Col 1 & 2: Brand & Identity */}
             <div className="lg:col-span-2 space-y-5">
@@ -215,7 +215,7 @@ export default function Footer() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp with New India Export"
-        className="fixed bottom-6 right-6 z-40 flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-4 py-3 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-3.5 py-3 sm:px-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group"
       >
         <MessageCircle size={22} className="fill-white" />
         <span className="hidden sm:inline-block text-xs font-semibold tracking-wide pr-1">
@@ -232,7 +232,7 @@ export default function Footer() {
             exit={{ opacity: 0, y: 15 }}
             onClick={scrollToTop}
             aria-label="Scroll back to top"
-            className="fixed bottom-20 sm:bottom-6 right-6 sm:right-44 z-40 p-3 rounded-full bg-white text-[#006B35] shadow-lg hover:shadow-xl hover:bg-[#EAF5EC] transition-all border border-neutral-200"
+            className="fixed bottom-18 sm:bottom-6 right-4 sm:right-44 z-40 p-3 rounded-full bg-white text-[#006B35] shadow-lg hover:shadow-xl hover:bg-[#EAF5EC] transition-all border border-neutral-200"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >

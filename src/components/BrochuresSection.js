@@ -45,7 +45,7 @@ export default function BrochuresSection() {
   ];
 
   return (
-    <section className="relative w-full py-20 lg:py-28 bg-[#004B28] text-white border-b border-black/[0.04] overflow-hidden">
+    <section className="relative w-full py-14 sm:py-20 lg:py-28 bg-[#004B28] text-white border-b border-black/[0.04] overflow-hidden">
       {/* Cinematic Background Image from updates folder */}
       <div className="absolute inset-0">
         <Image
@@ -94,12 +94,12 @@ export default function BrochuresSection() {
           {brochures.map((item, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.08 }}
+              viewport={{ once: true, amount: "some" }}
+              transition={{ duration: 0.45, delay: idx * 0.06 }}
               whileHover={{ y: -5 }}
-              className="bg-white/95 backdrop-blur-md rounded-3xl p-7 border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
+              className="bg-white/95 backdrop-blur-md rounded-3xl p-5 sm:p-7 border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">

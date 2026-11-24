@@ -203,13 +203,13 @@ export default function ShippingBookingModal({ open, setOpen }) {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
+      <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-start sm:items-center justify-center p-3 sm:p-4 overflow-y-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 15 }}
           transition={{ duration: 0.2 }}
-          className="relative w-full max-w-[460px] bg-white text-gray-900 rounded-3xl shadow-2xl border border-gray-100 my-8 overflow-hidden"
+          className="relative w-full max-w-[460px] bg-white text-gray-900 rounded-3xl shadow-2xl border border-gray-100 my-auto sm:my-8 max-h-[92vh] overflow-y-auto"
         >
           {/* CLOSE BUTTON */}
           <button
@@ -241,12 +241,12 @@ export default function ShippingBookingModal({ open, setOpen }) {
               </button>
             </div>
           ) : (
-            <div className="p-6 sm:p-7 space-y-5">
+            <div className="p-5 sm:p-7 space-y-5">
               
               {/* STEP 0 - SHIPMENT */}
               {step === 0 && (
                 <div className="space-y-5">
-                  <div className="space-y-1">
+                  <div className="space-y-1 pr-8">
                     <h2 className="text-xl font-bold text-gray-900">Choose Shipment</h2>
                     <p className="text-xs text-gray-500">Select your preferred international transit mode</p>
                   </div>
@@ -513,40 +513,40 @@ export default function ShippingBookingModal({ open, setOpen }) {
                   </div>
 
                   <div className="border border-gray-200 rounded-2xl p-4 space-y-2 text-xs sm:text-sm bg-gray-50">
-                    <div className="flex justify-between py-1 border-b border-gray-200">
-                      <span className="text-gray-500">Shipment Mode:</span>
-                      <span className="font-semibold text-gray-900">{form.shipment} Freight</span>
+                    <div className="flex justify-between gap-3 py-1 border-b border-gray-200">
+                      <span className="text-gray-500 shrink-0">Shipment Mode:</span>
+                      <span className="font-semibold text-gray-900 text-right">{form.shipment} Freight</span>
                     </div>
-                    <div className="flex justify-between py-1 border-b border-gray-200">
-                      <span className="text-gray-500">Category:</span>
-                      <span className="font-semibold text-gray-900">{form.category}</span>
+                    <div className="flex justify-between gap-3 py-1 border-b border-gray-200">
+                      <span className="text-gray-500 shrink-0">Category:</span>
+                      <span className="font-semibold text-gray-900 text-right">{form.category}</span>
                     </div>
-                    <div className="flex justify-between py-1 border-b border-gray-200">
-                      <span className="text-gray-500">Products:</span>
-                      <span className="font-semibold text-gray-900 text-right max-w-[200px] truncate">{form.subProducts.join(", ")}</span>
+                    <div className="flex justify-between gap-3 py-1 border-b border-gray-200">
+                      <span className="text-gray-500 shrink-0">Products:</span>
+                      <span className="font-semibold text-gray-900 text-right break-words max-w-[200px]">{form.subProducts.join(", ")}</span>
                     </div>
-                    <div className="flex justify-between py-1 border-b border-gray-200">
-                      <span className="text-gray-500">Quantity / Weight:</span>
-                      <span className="font-semibold text-gray-900">{form.quantity}</span>
+                    <div className="flex justify-between gap-3 py-1 border-b border-gray-200">
+                      <span className="text-gray-500 shrink-0">Quantity / Weight:</span>
+                      <span className="font-semibold text-gray-900 text-right">{form.quantity}</span>
                     </div>
-                    <div className="flex justify-between py-1 border-b border-gray-200">
-                      <span className="text-gray-500">Name:</span>
-                      <span className="font-semibold text-gray-900">{form.name}</span>
+                    <div className="flex justify-between gap-3 py-1 border-b border-gray-200">
+                      <span className="text-gray-500 shrink-0">Name:</span>
+                      <span className="font-semibold text-gray-900 text-right break-words">{form.name}</span>
                     </div>
-                    <div className="flex justify-between py-1 border-b border-gray-200">
-                      <span className="text-gray-500">Phone:</span>
-                      <span className="font-semibold text-gray-900">{form.phone}</span>
+                    <div className="flex justify-between gap-3 py-1 border-b border-gray-200">
+                      <span className="text-gray-500 shrink-0">Phone:</span>
+                      <span className="font-semibold text-gray-900 text-right">{form.phone}</span>
                     </div>
                     {form.country && (
-                      <div className="flex justify-between py-1 border-b border-gray-200">
-                        <span className="text-gray-500">Country:</span>
-                        <span className="font-semibold text-gray-900">{form.country}</span>
+                      <div className="flex justify-between gap-3 py-1 border-b border-gray-200">
+                        <span className="text-gray-500 shrink-0">Country:</span>
+                        <span className="font-semibold text-gray-900 text-right">{form.country}</span>
                       </div>
                     )}
                     {form.email && (
-                      <div className="flex justify-between py-1">
-                        <span className="text-gray-500">Email:</span>
-                        <span className="font-semibold text-gray-900">{form.email}</span>
+                      <div className="flex justify-between gap-3 py-1">
+                        <span className="text-gray-500 shrink-0">Email:</span>
+                        <span className="font-semibold text-gray-900 text-right break-all">{form.email}</span>
                       </div>
                     )}
                   </div>

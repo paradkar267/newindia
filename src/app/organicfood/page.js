@@ -36,7 +36,7 @@ export default function OrganicFoodsPage() {
   return (
     <main className="flex flex-col min-h-screen bg-[#FBF6EF] text-[#18201B]">
       {/* ==== HERO SECTION ==== */}
-      <section className="relative w-full overflow-hidden bg-[#0A1A10] pt-24 sm:pt-28 md:pt-32 pb-14 sm:pb-18 lg:pb-24 border-b border-black/[0.05]">
+      <section className="relative w-full min-h-[380px] sm:min-h-[400px] lg:min-h-[440px] flex items-center overflow-hidden bg-[#0A1A10] py-8 sm:py-12 lg:py-14 border-b border-black/[0.05]">
         {/* Authentic Reference Design Background Artwork */}
         <div className="absolute inset-0 z-0 pointer-events-none select-none">
           <Image
@@ -51,10 +51,10 @@ export default function OrganicFoodsPage() {
           />
         </div>
 
-        {/* Soft overlay on left side for crisp text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-transparent pointer-events-none" />
+        {/* Stronger mobile overlay so white text stays crisp across sunny wooden produce crate */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/75 sm:bg-gradient-to-r sm:from-black/55 sm:via-black/25 sm:to-transparent pointer-events-none" />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl space-y-4 sm:space-y-5">
             {/* Top Pill Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/25 text-white text-[11px] font-bold uppercase tracking-wider shadow-sm">
@@ -103,19 +103,19 @@ export default function OrganicFoodsPage() {
           </div>
 
           {/* 3 Premium Category Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7">
             {categories.map((cat, i) => (
               <motion.div
                 key={cat.name}
-                initial={{ opacity: 0, y: 25 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-black/[0.06] transition-all flex flex-col justify-between group hover:-translate-y-1.5 duration-300"
+                viewport={{ once: true, amount: "some" }}
+                transition={{ duration: 0.45, delay: i * 0.08 }}
+                className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-black/[0.07] hover:border-[#006B35]/20 transition-all flex flex-col justify-between group hover:-translate-y-1.5 duration-300"
               >
                 {/* Photo with Overlay Badge */}
                 <div
-                  className="relative w-full h-56 sm:h-64 cursor-pointer bg-[#F7F6F2] overflow-hidden"
+                  className="relative w-full h-56 sm:h-64 cursor-pointer bg-[#F7F6F2] overflow-hidden border-b border-black/[0.05] shrink-0"
                   onClick={() => setSelectedImg(cat.img)}
                 >
                   <Image
@@ -128,9 +128,9 @@ export default function OrganicFoodsPage() {
                 </div>
 
                 {/* Card Body */}
-                <div className="p-6 sm:p-7 text-center space-y-3 flex flex-col justify-between flex-grow">
-                  <div className="space-y-2">
-                    <h3 className="text-lg sm:text-xl font-bold font-heading text-[#18201B] flex items-center justify-center gap-1.5">
+                <div className="p-5 sm:p-7 text-center flex flex-col justify-between flex-grow gap-4">
+                  <div className="space-y-2.5">
+                    <h3 className="text-lg sm:text-xl font-bold font-heading text-[#18201B] flex items-center justify-center gap-1.5 group-hover:text-[#006B35] transition-colors">
                       <Leaf size={15} className="text-[#006B35]" />
                       <span>
                         Organic <span className="text-[#F58220]">{cat.highlight}</span>
@@ -142,10 +142,10 @@ export default function OrganicFoodsPage() {
                     </p>
                   </div>
 
-                  <div className="pt-2">
+                  <div className="pt-4 border-t border-black/[0.06]">
                     <Link
                       href={cat.link}
-                      className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#004B28] hover:bg-[#003B20] text-white text-xs sm:text-[13px] font-bold shadow-xs hover:shadow-md transition-all group-hover:translate-x-0.5"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#004B28] hover:bg-[#003B20] text-white text-xs sm:text-[13px] font-bold shadow-xs hover:shadow-md transition-all group-hover:translate-x-0.5"
                     >
                       <span>View Specifications</span>
                       <ArrowRight size={13} />

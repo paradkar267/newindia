@@ -145,10 +145,10 @@ export default function PlansSection() {
             {plans.map((plan, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                viewport={{ once: true, amount: "some" }}
+                transition={{ duration: 0.45, delay: idx * 0.08 }}
                 whileHover={{ y: -6 }}
                 className={`relative bg-white rounded-3xl p-7 sm:p-8 shadow-sm hover:shadow-2xl transition-all duration-300 border ${plan.cardBorder} flex flex-col justify-between`}
               >

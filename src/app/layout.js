@@ -2,19 +2,19 @@ import Script from "next/script";
 import Footer from "@/components/Footer";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import { Plus_Jakarta_Sans, Poppins } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 
-const plusJakarta = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-sans",
+  variable: "--font-google-body",
   display: "swap",
 });
 
-const poppins = Poppins({
+const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800", "900"],
-  variable: "--font-heading",
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-google-heading",
   display: "swap",
 });
 
@@ -29,7 +29,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`scroll-smooth ${plusJakarta.variable} ${poppins.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`scroll-smooth ${inter.variable} ${manrope.variable}`}>
       <body className="bg-[#FBF6EF] text-[#202522] min-h-screen flex flex-col font-sans" suppressHydrationWarning>
         <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="beforeInteractive" />
         <Navbar />

@@ -31,7 +31,7 @@ export default function BrochuresPage() {
   return (
     <main className="flex flex-col min-h-screen bg-[#FBF6EF] text-[#202522]">
       {/* ==== HEADER SECTION ==== */}
-      <section className="relative w-full py-24 sm:py-32 lg:py-36 flex items-center justify-center text-center overflow-hidden bg-[#0A1A10] text-white">
+      <section className="relative w-full py-16 sm:py-28 lg:py-36 flex items-center justify-center text-center overflow-hidden bg-[#0A1A10] text-white">
         <Image
           src="/brochures-hero-bg.png"
           alt="New India Export Catalogues & Brochures - High Quality Global Trade Publications"
@@ -82,8 +82,8 @@ export default function BrochuresPage() {
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: (i % 4) * 0.08 }}
+                viewport={{ once: true, amount: "some" }}
+                transition={{ duration: 0.45, delay: (i % 4) * 0.06 }}
                 whileHover={{ y: -4 }}
                 onClick={() => setSelectedImage(item.src)}
                 className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-black/[0.08] cursor-pointer flex flex-col"

@@ -9,7 +9,7 @@ export default function AboutPage() {
   return (
     <main className="flex flex-col min-h-screen bg-[#FBF6EF] text-[#202522]">
       {/* ==== HEADER SECTION ==== */}
-      <section className="relative w-full py-20 sm:py-28 lg:py-32 flex items-center justify-center text-center overflow-hidden bg-[#0A1A10] text-white">
+      <section className="relative w-full py-14 sm:py-24 lg:py-32 flex items-center justify-center text-center overflow-hidden bg-[#0A1A10] text-white">
         <Image
           src="/about-hero-bg.png"
           alt="About New India Export - Global Agricultural Multi-Modal Port Logistics"
@@ -93,11 +93,11 @@ export default function AboutPage() {
           
           {/* Who We Are Card */}
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-white/90 backdrop-blur-xl shadow-[0_12px_40px_-8px_rgba(0,107,53,0.07)] hover:shadow-2xl rounded-3xl p-7 sm:p-10 lg:p-12 border border-white/90 space-y-6 transition-all duration-300"
+            viewport={{ once: true, amount: "some" }}
+            transition={{ duration: 0.5 }}
+            className="bg-white/90 backdrop-blur-xl shadow-[0_12px_40px_-8px_rgba(0,107,53,0.07)] hover:shadow-2xl rounded-3xl p-5 sm:p-10 lg:p-12 border border-white/90 space-y-6 transition-all duration-300"
           >
             {/* Header Accent & Pill Badge */}
             <div className="flex items-center justify-between flex-wrap gap-3">
@@ -149,11 +149,11 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
             {/* Vision */}
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-[0_12px_40px_-8px_rgba(0,107,53,0.07)] hover:shadow-2xl p-7 sm:p-9 border border-white/90 space-y-5 transition-all duration-300 flex flex-col justify-between"
+              viewport={{ once: true, amount: "some" }}
+              transition={{ duration: 0.5 }}
+              className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-[0_12px_40px_-8px_rgba(0,107,53,0.07)] hover:shadow-2xl p-5 sm:p-9 border border-white/90 space-y-5 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center gap-3.5 mb-4">
@@ -182,11 +182,11 @@ export default function AboutPage() {
 
             {/* Core Values */}
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-[0_12px_40px_-8px_rgba(245,130,32,0.07)] hover:shadow-2xl p-7 sm:p-9 border border-white/90 space-y-5 transition-all duration-300 flex flex-col justify-between"
+              viewport={{ once: true, amount: "some" }}
+              transition={{ duration: 0.5, delay: 0.08 }}
+              className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-[0_12px_40px_-8px_rgba(245,130,32,0.07)] hover:shadow-2xl p-5 sm:p-9 border border-white/90 space-y-5 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center gap-3.5 mb-4">
@@ -226,11 +226,11 @@ export default function AboutPage() {
 
           {/* Specialities Section */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-[0_12px_40px_-8px_rgba(0,107,53,0.07)] p-8 sm:p-12 border border-white/90 space-y-8"
+            viewport={{ once: true, amount: "some" }}
+            transition={{ duration: 0.5 }}
+            className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-[0_12px_40px_-8px_rgba(0,107,53,0.07)] p-5 sm:p-12 border border-white/90 space-y-6 sm:space-y-8"
           >
             <div className="text-center space-y-2">
               <h3 className="text-2xl sm:text-3xl font-extrabold text-[#202522]">

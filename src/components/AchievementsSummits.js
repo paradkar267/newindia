@@ -104,42 +104,42 @@ export default function AchievementsSummits() {
     setNatIndex((prev) => (prev + dir + nationalSlides.length) % nationalSlides.length);
 
   return (
-    <section className="relative w-full py-20 lg:py-28 bg-[#FBF6EF] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+    <section className="relative w-full py-12 sm:py-20 lg:py-28 bg-[#FBF6EF] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14 sm:space-y-20">
         
         {/* WHY CHOOSE NEW INDIA EXPORT */}
-        <div className="space-y-12">
+        <div className="space-y-10 sm:space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF5EC] text-[#006B35] text-xs font-semibold uppercase tracking-wider">
               <span>The Export Advantage</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#202522] tracking-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#202522] tracking-tight">
               Why Choose New India Export
             </h2>
-            <p className="text-base sm:text-lg text-[#686F6B]">
+            <p className="text-sm sm:text-lg text-[#686F6B]">
               Engineered for seamless international commerce, verifiable authenticity, and unwavering consistency.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {whyChooseUs.map((benefit, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 25 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true, amount: "some" }}
+                transition={{ duration: 0.45, delay: i * 0.08 }}
                 whileHover={{ y: -4 }}
-                className="bg-[#FBF6EF] rounded-3xl p-7 border border-black/[0.06] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-7 border border-black/[0.06] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
               >
-                <div className="space-y-4">
-                  <div className="h-12 w-12 rounded-2xl bg-white shadow-xs border border-black/[0.06] flex items-center justify-center">
+                <div className="space-y-2.5 sm:space-y-4">
+                  <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-xl sm:rounded-2xl bg-white shadow-xs border border-black/[0.06] flex items-center justify-center">
                     {benefit.icon}
                   </div>
-                  <h3 className="text-lg font-bold text-[#202522]">
+                  <h3 className="text-sm sm:text-lg font-bold text-[#202522] leading-snug">
                     {benefit.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#686F6B] leading-relaxed">
+                  <p className="text-[11px] sm:text-sm text-[#686F6B] leading-relaxed">
                     {benefit.desc}
                   </p>
                 </div>
@@ -175,15 +175,15 @@ export default function AchievementsSummits() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             
             {/* INTERNATIONAL SUMMITS CARD */}
-            <div className="bg-[#FBF6EF] rounded-3xl p-6 sm:p-8 border border-black/[0.06] shadow-sm space-y-5">
-              <div className="flex items-center justify-between">
+            <div className="bg-white rounded-3xl p-5 sm:p-8 border border-black/[0.06] shadow-sm space-y-4 sm:space-y-5">
+              <div className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
-                  <Globe2 className="w-5 h-5 text-[#006B35]" />
-                  <span className="text-sm font-bold uppercase tracking-wider text-[#006B35]">
+                  <Globe2 className="w-5 h-5 text-[#006B35] shrink-0" />
+                  <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#006B35]">
                     International Trade Exhibitions
                   </span>
                 </div>
-                <span className="text-xs font-semibold text-[#686F6B] bg-white px-2.5 py-1 rounded-full border border-black/[0.06]">
+                <span className="text-xs font-semibold text-[#686F6B] bg-[#FBF6EF] px-2.5 py-1 rounded-full border border-black/[0.06]">
                   {intIndex + 1} / {internationalSlides.length}
                 </span>
               </div>
@@ -250,15 +250,15 @@ export default function AchievementsSummits() {
             </div>
 
             {/* NATIONAL SUMMITS CARD */}
-            <div className="bg-[#FBF6EF] rounded-3xl p-6 sm:p-8 border border-black/[0.06] shadow-sm space-y-5">
-              <div className="flex items-center justify-between">
+            <div className="bg-white rounded-3xl p-5 sm:p-8 border border-black/[0.06] shadow-sm space-y-4 sm:space-y-5">
+              <div className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
-                  <Building2 className="w-5 h-5 text-[#F58220]" />
-                  <span className="text-sm font-bold uppercase tracking-wider text-[#F58220]">
+                  <Building2 className="w-5 h-5 text-[#F58220] shrink-0" />
+                  <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#F58220]">
                     National Summits & Ministries
                   </span>
                 </div>
-                <span className="text-xs font-semibold text-[#686F6B] bg-white px-2.5 py-1 rounded-full border border-black/[0.06]">
+                <span className="text-xs font-semibold text-[#686F6B] bg-[#FBF6EF] px-2.5 py-1 rounded-full border border-black/[0.06]">
                   {natIndex + 1} / {nationalSlides.length}
                 </span>
               </div>

@@ -9,7 +9,7 @@ export default function OthersPage() {
   return (
     <main className="flex flex-col min-h-screen bg-[#FBF6EF] text-[#18201B]">
       {/* ==== HERO SECTION ==== */}
-      <section className="relative w-full overflow-hidden bg-[#0A1A10] pt-24 sm:pt-28 md:pt-32 pb-14 sm:pb-18 lg:pb-24 border-b border-black/[0.05]">
+      <section className="relative w-full min-h-[380px] sm:min-h-[400px] lg:min-h-[440px] flex items-center overflow-hidden bg-[#0A1A10] py-8 sm:py-12 lg:py-14 border-b border-black/[0.05]">
         {/* Authentic Reference Design Background Artwork */}
         <div className="absolute inset-0 z-0 pointer-events-none select-none">
           <Image
@@ -24,10 +24,10 @@ export default function OthersPage() {
           />
         </div>
 
-        {/* Soft overlay on left side for crisp text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-transparent pointer-events-none" />
+        {/* Stronger mobile overlay for crisp text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/75 sm:bg-gradient-to-r sm:from-black/55 sm:via-black/25 sm:to-transparent pointer-events-none" />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl space-y-4 sm:space-y-5">
             {/* Top Pill Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/25 text-white text-[11px] font-bold uppercase tracking-wider shadow-sm">
@@ -61,14 +61,14 @@ export default function OthersPage() {
         <div className="max-w-6xl mx-auto space-y-12 sm:space-y-14 relative z-10">
           {/* Main Specialty Offerings Card */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border border-black/[0.06] shadow-sm hover:shadow-xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
+            viewport={{ once: true, amount: "some" }}
+            transition={{ duration: 0.45 }}
+            className="bg-white rounded-3xl p-5 sm:p-8 lg:p-10 border border-black/[0.07] hover:border-[#006B35]/20 shadow-sm hover:shadow-xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center"
           >
             {/* Left Photo Banner */}
-            <div className="lg:col-span-5 relative w-full h-72 sm:h-84 lg:h-96 rounded-2xl overflow-hidden bg-[#F7F6F2] shadow-inner group">
+            <div className="lg:col-span-5 relative w-full h-56 sm:h-84 lg:h-96 rounded-2xl overflow-hidden bg-[#F7F6F2] shadow-inner group">
               <Image
                 src="/Others.jpg"
                 alt="Specialty Commodities and Custom Sourcing"
@@ -95,10 +95,10 @@ export default function OthersPage() {
                 We are working hard to expand our catalog with certified specialty herbs, processed agro-byproducts, and tailored export shipments.
               </p>
 
-              <div className="pt-2 flex flex-wrap items-center gap-3.5">
+              <div className="pt-2 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3.5">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#004B28] hover:bg-[#003B20] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#004B28] hover:bg-[#003B20] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all"
                 >
                   <ExternalLink size={14} />
                   <span>Request Custom Sourcing</span>
@@ -108,7 +108,7 @@ export default function OthersPage() {
                   href="https://wa.me/919028894149?text=Hello%20New%20India%20Export%2C%20I%20have%20a%20custom%20product%20sourcing%20inquiry."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white hover:bg-neutral-50 text-[#18201B] border border-black/[0.12] text-xs sm:text-sm font-semibold transition-colors shadow-2xs"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-white hover:bg-neutral-50 text-[#18201B] border border-black/[0.12] text-xs sm:text-sm font-semibold transition-colors shadow-2xs"
                 >
                   <MessageCircle size={15} className="text-[#006B35]" />
                   <span>WhatsApp Trade Desk</span>
@@ -118,48 +118,48 @@ export default function OthersPage() {
           </motion.div>
 
           {/* Bottom 4-Pillar Feature Bar (Matches Reference Image Perfectly) */}
-          <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-black/[0.06] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 divide-y sm:divide-y-0 lg:divide-x divide-black/[0.06]">
+          <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-black/[0.06] grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:divide-x divide-black/[0.06]">
             {/* Col 1 */}
-            <div className="flex items-center gap-3.5 pt-2 sm:pt-0">
-              <div className="w-11 h-11 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center shrink-0 border border-[#006B35]/15 shadow-2xs">
+            <div className="flex items-center gap-3 sm:gap-3.5">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center shrink-0 border border-[#006B35]/15 shadow-2xs">
                 <Leaf size={20} />
               </div>
-              <div className="space-y-0.5">
-                <h4 className="text-sm sm:text-base font-extrabold text-[#111814] font-heading">Premium Quality</h4>
-                <p className="text-xs text-[#686F6B] leading-snug">Assured</p>
+              <div className="space-y-0.5 min-w-0">
+                <h4 className="text-xs sm:text-base font-extrabold text-[#111814] font-heading leading-tight">Premium Quality</h4>
+                <p className="text-[11px] sm:text-xs text-[#686F6B] leading-snug">Assured</p>
               </div>
             </div>
 
             {/* Col 2 */}
-            <div className="flex items-center gap-3.5 pt-3 sm:pt-0 lg:pl-6">
-              <div className="w-11 h-11 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center shrink-0 border border-[#006B35]/15 shadow-2xs">
+            <div className="flex items-center gap-3 sm:gap-3.5 lg:pl-6">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center shrink-0 border border-[#006B35]/15 shadow-2xs">
                 <Globe2 size={20} />
               </div>
-              <div className="space-y-0.5">
-                <h4 className="text-sm sm:text-base font-extrabold text-[#111814] font-heading">Global Export</h4>
-                <p className="text-xs text-[#686F6B] leading-snug">Ready</p>
+              <div className="space-y-0.5 min-w-0">
+                <h4 className="text-xs sm:text-base font-extrabold text-[#111814] font-heading leading-tight">Global Export</h4>
+                <p className="text-[11px] sm:text-xs text-[#686F6B] leading-snug">Ready</p>
               </div>
             </div>
 
             {/* Col 3 */}
-            <div className="flex items-center gap-3.5 pt-3 sm:pt-0 lg:pl-6">
-              <div className="w-11 h-11 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center shrink-0 border border-[#006B35]/15 shadow-2xs">
+            <div className="flex items-center gap-3 sm:gap-3.5 lg:pl-6">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center shrink-0 border border-[#006B35]/15 shadow-2xs">
                 <Handshake size={20} />
               </div>
-              <div className="space-y-0.5">
-                <h4 className="text-sm sm:text-base font-extrabold text-[#111814] font-heading">Reliable Partner</h4>
-                <p className="text-xs text-[#686F6B] leading-snug">Worldwide</p>
+              <div className="space-y-0.5 min-w-0">
+                <h4 className="text-xs sm:text-base font-extrabold text-[#111814] font-heading leading-tight">Reliable Partner</h4>
+                <p className="text-[11px] sm:text-xs text-[#686F6B] leading-snug">Worldwide</p>
               </div>
             </div>
 
             {/* Col 4 */}
-            <div className="flex items-center gap-3.5 pt-3 sm:pt-0 lg:pl-6">
-              <div className="w-11 h-11 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center shrink-0 border border-[#006B35]/15 shadow-2xs">
+            <div className="flex items-center gap-3 sm:gap-3.5 lg:pl-6">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center shrink-0 border border-[#006B35]/15 shadow-2xs">
                 <ShieldCheck size={20} />
               </div>
-              <div className="space-y-0.5">
-                <h4 className="text-sm sm:text-base font-extrabold text-[#111814] font-heading">Sustainable</h4>
-                <p className="text-xs text-[#686F6B] leading-snug">&amp; Eco-Friendly</p>
+              <div className="space-y-0.5 min-w-0">
+                <h4 className="text-xs sm:text-base font-extrabold text-[#111814] font-heading leading-tight">Sustainable</h4>
+                <p className="text-[11px] sm:text-xs text-[#686F6B] leading-snug">&amp; Eco-Friendly</p>
               </div>
             </div>
           </div>

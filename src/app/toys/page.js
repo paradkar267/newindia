@@ -90,7 +90,7 @@ export default function ToysPage() {
     <main className="flex flex-col min-h-screen bg-[#FBF6EF] text-[#202522]">
       
       {/* ==== HERO SECTION ==== */}
-      <section className="relative w-full py-24 sm:py-32 lg:py-36 flex items-center justify-center text-center overflow-hidden bg-[#0A1A10] text-white">
+      <section className="relative w-full min-h-[380px] sm:min-h-[400px] lg:min-h-[440px] flex items-center justify-center text-center overflow-hidden bg-[#0A1A10] py-8 sm:py-12 lg:py-14 border-b border-black/[0.05] text-white">
         <Image
           src="/toys-hero-bg.png"
           alt="Export Grade Indian Toys & Handcrafted Games - New India Export"
@@ -104,43 +104,25 @@ export default function ToysPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#004B28]/70 via-black/45 to-[#003B20]/85" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40 pointer-events-none" />
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 space-y-4 sm:space-y-5">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-emerald-200 text-xs sm:text-sm font-semibold uppercase tracking-wider shadow-sm">
-            <Sparkles size={14} className="text-[#F58220]" />
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-4 space-y-3 sm:space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-emerald-200 text-[11px] sm:text-sm font-semibold uppercase tracking-wider shadow-sm">
+            <Sparkles size={14} className="text-[#F58220] shrink-0" />
             <span>BIS Certified • Non-Toxic • Eco-Friendly</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white drop-shadow-lg font-heading">
-            Indian Toys & Handicrafts
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white drop-shadow-lg font-heading leading-[1.12]">
+            Indian Toys &amp; Handicrafts
           </h1>
-          <p className="max-w-2xl mx-auto text-white/90 text-base sm:text-lg font-normal leading-relaxed drop-shadow-md">
+          <p className="max-w-2xl mx-auto text-white/90 text-xs sm:text-base md:text-lg font-normal leading-relaxed drop-shadow-md">
             Delivering India’s finest handcrafted wooden toys, STEM Montessori sets, and certified educational games to discerning global retailers and educational distributors.
           </p>
-
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href="/contact"
-              className="px-6 py-3.5 rounded-xl bg-[#F58220] hover:bg-[#E07216] text-white font-bold text-xs sm:text-sm tracking-wide shadow-lg shadow-[#F58220]/25 transition-all hover:scale-105"
-            >
-              Request Toy Catalog & RFQ
-            </Link>
-            <a
-              href="https://wa.me/919028894149?text=Hello%20New%20India%20Export%2C%20I%20am%20interested%20in%20importing%20Indian%20Toys%20and%20Handicrafts."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white font-bold text-xs sm:text-sm tracking-wide transition-all hover:scale-105 flex items-center gap-2"
-            >
-              <MessageCircle size={16} className="text-[#25D366]" />
-              <span>WhatsApp Trade Desk</span>
-            </a>
-          </div>
         </div>
       </section>
 
       {/* ==== 4-PILLAR EXPORT ADVANTAGE ==== */}
-      <section className="py-12 bg-[#FBF6EF] border-b border-[#006B35]/10">
+      <section className="py-10 sm:py-12 bg-[#FBF6EF] border-b border-[#006B35]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="p-5 rounded-2xl bg-[#FBF6EF] border border-black/[0.06] space-y-2">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
+            <div className="p-4 sm:p-5 rounded-2xl bg-[#FBF6EF] border border-black/[0.06] space-y-2">
               <div className="w-10 h-10 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center">
                 <ShieldCheck size={20} />
               </div>
@@ -150,7 +132,7 @@ export default function ToysPage() {
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#FBF6EF] border border-black/[0.06] space-y-2">
+            <div className="p-4 sm:p-5 rounded-2xl bg-[#FBF6EF] border border-black/[0.06] space-y-2">
               <div className="w-10 h-10 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center">
                 <Smile size={20} />
               </div>
@@ -160,7 +142,7 @@ export default function ToysPage() {
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#FBF6EF] border border-black/[0.06] space-y-2">
+            <div className="p-4 sm:p-5 rounded-2xl bg-[#FBF6EF] border border-black/[0.06] space-y-2">
               <div className="w-10 h-10 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center">
                 <Package size={20} />
               </div>
@@ -170,7 +152,7 @@ export default function ToysPage() {
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#FBF6EF] border border-black/[0.06] space-y-2">
+            <div className="p-4 sm:p-5 rounded-2xl bg-[#FBF6EF] border border-black/[0.06] space-y-2">
               <div className="w-10 h-10 rounded-xl bg-[#EAF5EC] text-[#006B35] flex items-center justify-center">
                 <Ship size={20} />
               </div>
@@ -198,22 +180,23 @@ export default function ToysPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-7">
           {categories.map((cat, idx) => (
             <motion.div
               key={cat.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-white rounded-3xl overflow-hidden border border-black/[0.08] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              viewport={{ once: true, amount: "some" }}
+              transition={{ duration: 0.45, delay: idx * 0.08 }}
+              className="group bg-white rounded-3xl overflow-hidden border border-black/[0.07] hover:border-[#006B35]/20 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
             >
-              <div className="relative h-64 sm:h-72 w-full overflow-hidden">
+              <div className="relative h-56 sm:h-68 w-full overflow-hidden border-b border-black/[0.05] shrink-0">
                 <Image
                   src={cat.img}
                   alt={cat.title}
                   fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 560px"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 text-white">
@@ -226,7 +209,7 @@ export default function ToysPage() {
                 </div>
               </div>
 
-              <div className="p-6 sm:p-8 space-y-5 flex-1 flex flex-col justify-between">
+              <div className="p-5 sm:p-8 space-y-5 flex-1 flex flex-col justify-between">
                 <p className="text-xs sm:text-sm text-[#555C57] leading-relaxed">
                   {cat.desc}
                 </p>
@@ -281,14 +264,14 @@ export default function ToysPage() {
           </div>
 
           <div className="rounded-2xl border border-black/[0.08] overflow-hidden shadow-xs">
-            <table className="w-full text-left border-collapse text-xs sm:text-sm">
-              <tbody>
+            <table className="w-full text-left border-collapse text-xs sm:text-sm block sm:table">
+              <tbody className="block sm:table-row-group divide-y divide-black/[0.05] sm:divide-y-0">
                 {specs.map((s, idx) => (
-                  <tr key={s.param} className={idx % 2 === 0 ? "bg-[#FAFAF8]" : "bg-white"}>
-                    <td className="py-3.5 px-4 sm:px-6 font-bold text-[#18201B] border-b border-black/[0.05] w-1/3">
+                  <tr key={s.param} className={`flex flex-col sm:table-row ${idx % 2 === 0 ? "bg-[#FAFAF8]" : "bg-white"}`}>
+                    <td className="pt-3 pb-0.5 sm:py-3.5 px-4 sm:px-6 font-bold text-[#18201B] sm:border-b border-black/[0.05] sm:w-1/3">
                       {s.param}
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 text-[#4A554E] border-b border-black/[0.05]">
+                    <td className="pt-0 pb-3 sm:py-3.5 px-4 sm:px-6 text-[#4A554E] sm:border-b border-black/[0.05]">
                       {s.value}
                     </td>
                   </tr>
@@ -300,22 +283,22 @@ export default function ToysPage() {
       </section>
 
       {/* ==== BOTTOM RFQ CTA BANNER ==== */}
-      <section className="py-16 sm:py-20 bg-gradient-to-br from-[#003B20] via-[#004B28] to-[#042415] text-white text-center relative overflow-hidden">
+      <section className="py-14 sm:py-20 bg-gradient-to-br from-[#003B20] via-[#004B28] to-[#042415] text-white text-center relative overflow-hidden">
         <div className="relative z-10 max-w-3xl mx-auto px-4 space-y-5">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-[#F58220] text-xs font-bold uppercase tracking-wider">
             <Sparkles size={13} className="text-[#F58220]" />
             <span>Direct Commercial Trade Desk</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-heading">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-white font-heading">
             Source Certified Indian Toys for Your Retail & Distribution Chain
           </h2>
           <p className="text-sm sm:text-base text-white/80 leading-relaxed max-w-xl mx-auto font-light">
             Contact our international export specialists for bespoke production samples, private labeling, master container pricing, and scheduled port dispatch.
           </p>
-          <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 max-w-sm sm:max-w-none mx-auto">
             <Link
               href="/contact"
-              className="px-8 py-3.5 rounded-xl bg-[#F58220] hover:bg-[#E07216] text-white font-bold text-sm tracking-wide shadow-lg transition-all hover:scale-105"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#F58220] hover:bg-[#E07216] text-white font-bold text-sm tracking-wide shadow-lg transition-all hover:scale-105 text-center"
             >
               Submit Trade RFQ
             </Link>
@@ -323,7 +306,7 @@ export default function ToysPage() {
               href="https://wa.me/919028894149?text=Hello%20New%20India%20Export%2C%20I%20want%20to%20discuss%20an%20export%20inquiry%20for%20Indian%20Toys."
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3.5 rounded-xl bg-white/15 hover:bg-white/25 border border-white/20 text-white font-bold text-sm tracking-wide transition-all hover:scale-105 flex items-center gap-2"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-white/15 hover:bg-white/25 border border-white/20 text-white font-bold text-sm tracking-wide transition-all hover:scale-105 flex items-center justify-center gap-2"
             >
               <MessageCircle size={17} className="text-[#25D366]" />
               <span>Direct WhatsApp Desk</span>

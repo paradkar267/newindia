@@ -135,28 +135,28 @@ export default function BookingModal({ open, setOpen }) {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 bg-black/65 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+      <div className="fixed inset-0 bg-black/65 backdrop-blur-sm z-50 flex items-start sm:items-center justify-center p-3 sm:p-4 overflow-y-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-2xl bg-white text-[#202522] rounded-3xl shadow-2xl border border-black/[0.08] my-6 max-h-[92vh] overflow-y-auto"
+          className="relative w-full max-w-2xl bg-white text-[#202522] rounded-3xl shadow-2xl border border-black/[0.08] my-auto sm:my-6 max-h-[92vh] overflow-y-auto"
         >
           {/* HEADER (Matches the PDF Navy/Forest Green Top Section) */}
-          <div className="relative bg-[#004B28] text-white p-6 sm:p-8 rounded-t-3xl overflow-hidden">
+          <div className="relative bg-[#004B28] text-white p-5 sm:p-8 rounded-t-3xl overflow-hidden">
             {/* Subtle brand dots overlay */}
             <div className="absolute inset-0 bg-dot-pattern opacity-10 pointer-events-none" />
 
             {/* Close Button */}
             <button
               onClick={() => setOpen(false)}
-              className="absolute right-5 top-5 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors z-10"
+              className="absolute right-4 top-4 sm:right-5 sm:top-5 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors z-10"
               aria-label="Close modal"
             >
               <X size={18} />
             </button>
 
-            <div className="relative z-10 space-y-3">
+            <div className="relative z-10 space-y-3 pr-8">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-emerald-200 text-xs font-semibold uppercase tracking-wider">
                 <BookOpen size={13} className="text-[#F58220]" />
                 <span>Executive Training Program</span>
@@ -451,7 +451,7 @@ export default function BookingModal({ open, setOpen }) {
                     )}
                   </button>
 
-                  <div className="flex items-center justify-between text-xs text-[#686F6B] pt-1">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-[#686F6B] pt-1">
                     <a
                       href="/export-class-registration-form.pdf"
                       target="_blank"
