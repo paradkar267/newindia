@@ -3,7 +3,6 @@ import TrustSection from "@/components/TrustSection";
 import ProductsSection from "@/components/ProductsSection";
 import AboutShowcase from "@/components/AboutShowcase";
 import AchievementsSummits from "@/components/AchievementsSummits";
-import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
   return (
@@ -13,7 +12,6 @@ export default function Home() {
       <ProductsSection />
       <AboutShowcase />
       <AchievementsSummits />
-      <ContactSection />
     </>
   );
 }

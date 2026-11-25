@@ -78,7 +78,7 @@ export default function ProductsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10 sm:space-y-12">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="flex flex-col items-start md:flex-row md:items-end justify-between gap-5 sm:gap-6">
           <div className="space-y-3 max-w-2xl">
             {/* Top Green Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF5EC] border border-[#006B35]/20 text-[#006B35] text-xs font-bold uppercase tracking-wider shadow-2xs">
@@ -102,7 +102,7 @@ export default function ProductsSection() {
           {/* Action Link: View Complete Product Catalogues */}
           <Link
             href="/brochures"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-[#004B28] text-[#006B35] hover:text-white border-2 border-[#006B35] text-xs sm:text-sm font-bold shadow-xs hover:shadow-md transition-all duration-300 group shrink-0"
+            className="self-start md:self-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#0A301D] hover:bg-[#062214] text-white text-xs sm:text-sm font-semibold shadow-sm hover:shadow-md transition-colors group shrink-0"
           >
             <span>View Complete Product Catalogues</span>
             <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />

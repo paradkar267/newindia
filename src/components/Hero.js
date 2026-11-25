@@ -12,11 +12,8 @@ import {
   ShieldCheck,
   CheckCircle2,
   Download,
-  Sparkles,
   Ship,
   Leaf,
-  Plane,
-  Truck,
   ExternalLink,
   Building2,
   MapPin,
@@ -49,40 +46,37 @@ export default function Hero() {
          ========================================================================= */}
       <section className="relative w-full overflow-hidden bg-[#042917] -mt-18 sm:-mt-20 lg:-mt-22">
 
-        {/* MOBILE & TABLET HERO (< lg): High-contrast atmospheric header + seamless multimodal harbor panorama */}
-        <div className="relative lg:hidden w-full bg-[#042917] overflow-hidden pt-24 sm:pt-28">
-          {/* Ambient radial glow and subtle coordinate grid */}
-          <div className="absolute -top-24 right-[-15%] w-72 h-72 rounded-full bg-[#008C45]/25 blur-3xl pointer-events-none" />
-          <div className="absolute top-28 -left-16 w-56 h-56 rounded-full bg-[#F58220]/10 blur-3xl pointer-events-none" />
-          <div
-            className="absolute inset-0 opacity-[0.07] pointer-events-none"
-            style={{
-              backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)",
-              backgroundSize: "20px 20px",
-            }}
-          />
+        {/* MOBILE & TABLET HERO (< lg): Text overlaid cleanly inside open dark-emerald region of portrait artwork */}
+        <div className="relative lg:hidden w-full bg-[#012813] overflow-hidden pt-18 sm:pt-20">
+          {/* Portrait Artwork Base (Flight Circle + Container Ship + White Truck + Cream Wave) */}
+          <div className="relative w-full aspect-[3/4]">
+            <Image
+              src="/updates/India Export_ Ship, Truck, and Flight.png"
+              alt="New India Export - Air Cargo, Container Ship & Inland Truck Logistics"
+              fill
+              priority
+              quality={100}
+              unoptimized
+              sizes="(max-width: 1023px) 100vw, 1024px"
+              className="object-cover object-top"
+            />
+            {/* Smooth bottom blend into #FBF6EF */}
+            <div className="absolute inset-x-0 bottom-0 h-5 sm:h-7 bg-gradient-to-t from-[#FBF6EF] to-transparent pointer-events-none" />
+          </div>
 
-          {/* Hero Copy Stack: Crisp legibility, zero colliding background shapes */}
-          <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 space-y-3.5 sm:space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.08] border border-white/15 backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#F58220] animate-pulse" />
-              <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-emerald-100">
-                APEDA &amp; FSSAI Certified Exporter
-              </span>
-            </div>
+          {/* Hero Copy Overlaid cleanly inside Top-Left Open Emerald Sky */}
+          <div className="absolute top-22 sm:top-28 inset-x-0 z-10 px-4 sm:px-6 pointer-events-auto">
+            <div className="max-w-[65%] sm:max-w-[58%] md:max-w-[56%] space-y-3 sm:space-y-4">
+              <h1 className="text-[28px] min-[390px]:text-[31px] sm:text-[42px] md:text-[46px] font-extrabold text-white leading-[1.08] tracking-tight font-heading drop-shadow-sm">
+                Indian produce.<br />
+                <span className="text-[#F58220]">Worldwide</span> delivery.
+              </h1>
 
-            <h1 className="text-[31px] sm:text-[42px] font-extrabold text-white leading-[1.08] tracking-tight font-heading">
-              Indian produce.<br />
-              <span className="text-[#F58220]">Worldwide</span> delivery.
-            </h1>
+              <p className="text-[13px] min-[390px]:text-[14px] sm:text-base text-white/85 leading-snug sm:leading-relaxed max-w-sm">
+                Source Indian spices, grains and fresh produce for your market.
+              </p>
 
-            <p className="text-[13.5px] sm:text-base text-white/85 max-w-md leading-relaxed">
-              Source Indian spices, grains and fresh produce for your market.
-            </p>
-
-            {/* Primary CTA + Compact Multi-Modal Strip */}
-            <div className="pt-1 flex flex-col sm:flex-row sm:items-center gap-3.5 sm:gap-5">
-              <div>
+              <div className="pt-1">
                 <a
                   href="#products"
                   onClick={scrollToProducts}
@@ -94,40 +88,7 @@ export default function Hero() {
                   </span>
                 </a>
               </div>
-
-              <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold text-white/80">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/[0.06] border border-white/10">
-                  <Ship size={12} className="text-[#F58220]" />
-                  <span>Sea Freight</span>
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/[0.06] border border-white/10">
-                  <Plane size={12} className="text-emerald-300" />
-                  <span>Air Cargo</span>
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/[0.06] border border-white/10">
-                  <Truck size={12} className="text-[#F58220]" />
-                  <span>ICD Rail</span>
-                </span>
-              </div>
             </div>
-          </div>
-
-          {/* Seamless Multi-Modal Harbor Panorama (Truck + Ocean Vessel at Sunset) */}
-          <div className="relative w-full aspect-[2.2/1] sm:aspect-[2.6/1] mt-5 sm:mt-7">
-            <Image
-              src="/updates/Sunset port with ship and truck.png"
-              alt="New India Export Multi-Modal Port, Container Truck & Ocean Vessel"
-              fill
-              priority
-              quality={90}
-              sizes="(max-width: 1023px) 100vw, 1024px"
-              className="object-cover object-[30%_center] sm:object-center"
-            />
-            {/* Smooth atmospheric mist blending sky into emerald header canvas */}
-            <div className="absolute inset-x-0 top-0 h-14 sm:h-20 bg-gradient-to-b from-[#042917] via-[#042917]/55 to-transparent pointer-events-none" />
-            <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
-            {/* Signature Saffron-Emerald Accent Horizon Line */}
-            <div className="absolute inset-x-0 bottom-0 h-[3px] bg-gradient-to-r from-[#F58220] via-[#ff9d47] to-[#006B35]" />
           </div>
         </div>
 
@@ -514,74 +475,75 @@ export default function Hero() {
 
             </div>
 
-            {/* Right 5 Columns: Unobstructed Dual Real-Ground Operations Showcase */}
+            {/* Right 5 Columns: Framed Editorial Ground Operations Showcase */}
             <div className="lg:col-span-5">
-              <div className="relative mx-auto max-w-lg lg:max-w-none space-y-4">
+              <div className="relative mx-auto max-w-lg lg:max-w-none space-y-3.5">
 
-                {/* Primary Card: Real Ground Farm Crop Inspection (Center-crop framing, zero sky clutter) */}
-                <div className="group relative h-[300px] sm:h-[340px] w-full rounded-3xl overflow-hidden shadow-xl border-2 border-white bg-[#141E18]">
-                  <Image
-                    src="/gallery/FarmVisit.jpg"
-                    alt="New India Export Ground Farm Quality Verification in Maharashtra"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 480px"
-                    className="object-cover object-[50%_54%] group-hover:scale-103 transition-transform duration-700 ease-out"
-                  />
-                  {/* Balanced gradient scrim keeping caption crystal clear */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10 pointer-events-none" />
+                {/* Primary Card: Framed Ground Farm Crop Inspection */}
+                <div className="group rounded-[26px] bg-white p-2 border border-[#E6DDD0] shadow-[0_22px_48px_-14px_rgba(6,40,20,0.16)] hover:shadow-[0_28px_56px_-14px_rgba(6,40,20,0.22)] transition-all duration-500">
+                  <div className="relative h-[300px] sm:h-[340px] w-full rounded-[19px] overflow-hidden bg-[#0B2215] ring-1 ring-black/[0.06]">
+                    <Image
+                      src="/gallery/FarmVisit.jpg"
+                      alt="New India Export Ground Farm Quality Verification in Maharashtra"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 480px"
+                      className="object-cover object-[50%_52%] contrast-[1.04] saturate-[1.06] group-hover:scale-103 transition-transform duration-700 ease-out"
+                    />
+                    {/* Deep emerald cinematic vignette keeping caption crisp and foliage rich */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#03170C]/95 via-[#062414]/40 to-transparent pointer-events-none" />
 
-                  {/* Top floating verification chip */}
-                  <div className="absolute top-3.5 left-4 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-[10px] font-bold uppercase tracking-wider text-white">
-                    <Sparkles size={11} className="text-[#F58220]" />
-                    <span>Direct Farm Sourcing</span>
-                  </div>
-
-                  {/* Clean unobstructed bottom caption */}
-                  <div className="absolute bottom-4 left-5 right-5 text-white space-y-1 z-10">
-                    <h3 className="text-base sm:text-lg font-bold font-heading leading-snug drop-shadow-md text-white">
-                      On-Field Crop Inspection &amp; Quality Grading
-                    </h3>
-                    <p className="text-xs text-white/85 leading-relaxed line-clamp-2 font-normal">
-                      Agronomists inspect moisture and purity across Vidarbha &amp; Central India farming clusters before container dispatch.
-                    </p>
+                    {/* Clean editorial bottom caption */}
+                    <div className="absolute bottom-4 sm:bottom-5 inset-x-5 text-white space-y-1.5 z-10">
+                      <span className="block w-8 h-[2.5px] rounded-full bg-[#F58220]" />
+                      <h3 className="text-[17px] sm:text-[19px] font-bold font-heading leading-snug tracking-[-0.015em] drop-shadow-md text-white">
+                        On-Field Crop Inspection &amp; Quality Grading
+                      </h3>
+                      <p className="text-xs text-white/85 leading-relaxed font-normal max-w-md">
+                        Agronomists inspect moisture &amp; purity across Vidarbha &amp; Central India clusters before container dispatch.
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                {/* Secondary Companion Card: ICD MIHAN Container Dry Port Railhead (Zero overlap) */}
-                <div className="group rounded-2xl bg-white p-3 sm:p-3.5 border border-black/[0.07] shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
-                  <div className="relative w-full sm:w-40 h-36 sm:h-28 rounded-xl overflow-hidden bg-[#141E18] shrink-0">
+                {/* Secondary Companion Card: Framed ICD MIHAN Dry Port Gateway */}
+                <div className="group rounded-[22px] bg-white p-2 sm:p-2.5 border border-[#E6DDD0] hover:border-[#006B35]/25 shadow-[0_16px_36px_-12px_rgba(13,31,20,0.11)] hover:shadow-[0_22px_44px_-12px_rgba(0,107,53,0.15)] transition-all duration-300 flex flex-col sm:flex-row items-stretch gap-3">
+                  <div className="relative w-full sm:w-[162px] h-44 sm:h-auto sm:min-h-[146px] rounded-[14px] overflow-hidden bg-[#0B2215] ring-1 ring-black/[0.08] shrink-0">
                     <Image
                       src="/gallery/ICDMihan.jpg"
                       alt="Nagpur ICD MIHAN Container Dry Port Railhead"
                       fill
-                      sizes="240px"
-                      className="object-cover object-[50%_20%] group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 640px) 100vw, 220px"
+                      className="object-cover object-[52%_20%] contrast-[1.04] saturate-[1.06] group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
-                    <div className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/65 backdrop-blur-sm text-[9px] font-bold text-white uppercase tracking-wider flex items-center gap-1 border border-white/20">
-                      <Ship size={10} className="text-[#84E07B]" />
-                      <span>ICD MIHAN</span>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#041A0E]/40 via-transparent to-transparent pointer-events-none" />
                   </div>
 
-                  <div className="flex-1 min-w-0 flex flex-col justify-between space-y-2 px-0.5">
-                    <div className="space-y-1">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#F58220] block">
-                        Zero-Mile Rail Gateway
-                      </span>
-                      <h4 className="text-sm sm:text-[15px] font-bold font-heading text-[#0D1F14] leading-snug">
+                  <div className="flex-1 min-w-0 flex flex-col justify-between gap-2.5 py-1 px-1.5 sm:px-1.5">
+                    <div className="space-y-1.5">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-[9.5px] sm:text-[10px] font-extrabold uppercase tracking-[0.09em] text-[#D96A0F] whitespace-nowrap">
+                          Zero-Mile Rail Gateway
+                        </span>
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#EAF5EC] border border-[#006B35]/20 text-[9.5px] font-bold uppercase tracking-wider text-[#006B35] shrink-0">
+                          <Ship size={10} />
+                          <span>ICD MIHAN</span>
+                        </span>
+                      </div>
+
+                      <h4 className="text-[15px] sm:text-base font-extrabold font-heading text-[#0D1F14] tracking-[-0.015em] leading-snug">
                         Multi-Modal Rail Logistics
                       </h4>
-                      <p className="text-xs text-[#5A6660] leading-snug">
-                        Direct Rail Dispatch to JNPT / Nhava Sheva &amp; Mundra Ports
+                      <p className="text-xs text-[#556059] leading-relaxed">
+                        Direct rail dispatch to JNPT (Nhava Sheva) &amp; Mundra container terminals.
                       </p>
                     </div>
 
-                    <div className="pt-1.5 border-t border-black/[0.06] flex items-center justify-between text-[11px]">
-                      <span className="font-bold text-[#006B35] flex items-center gap-1">
-                        <CheckCircle2 size={12} className="text-[#006B35]" />
-                        APEDA Licensed
+                    <div className="pt-2 border-t border-[#EBE2D5] flex items-center justify-between gap-2">
+                      <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#006B35]">
+                        <CheckCircle2 size={13} className="text-[#006B35] shrink-0" />
+                        <span>APEDA Licensed</span>
                       </span>
-                      <span className="text-[10px] text-[#686F6B] font-semibold uppercase tracking-wide">
+                      <span className="px-2.5 py-0.5 rounded-full bg-[#FBF6EF] border border-[#E7DED0] text-[9.5px] font-bold uppercase tracking-[0.08em] text-[#4D5852]">
                         Dry Port Hub
                       </span>
                     </div>
@@ -665,7 +627,7 @@ export default function Hero() {
 
               {/* Subtitle Description */}
               <p className="text-xs sm:text-[13px] md:text-sm text-[#556059] leading-relaxed max-w-xl font-normal">
-                Direct farm-gate procurement from India's premier agricultural clusters. Full international compliance with custom export packaging, phytosanitary clearance, and multi-modal cold chain shipping.
+                Direct farm-gate procurement from India&apos;s premier agricultural clusters. Full international compliance with custom export packaging, phytosanitary clearance, and multi-modal cold chain shipping.
               </p>
             </div>
 

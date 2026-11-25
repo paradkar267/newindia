@@ -29,6 +29,16 @@ export default function Navbar() {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [shippingOpen, setShippingOpen] = useState(false);
   const pathname = usePathname();
+  const [prevPathname, setPrevPathname] = useState(pathname);
+
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setMobileOpen(false);
+    setMobileProductsOpen(false);
+    setMobileBrochuresOpen(false);
+    setDesktopProductsOpen(false);
+    setDesktopBrochuresOpen(false);
+  }
 
   useEffect(() => {
     const onScroll = () => {
@@ -45,14 +55,6 @@ export default function Navbar() {
       document.body.style.overflow = "";
     }
   }, [mobileOpen]);
-
-  useEffect(() => {
-    setMobileOpen(false);
-    setMobileProductsOpen(false);
-    setMobileBrochuresOpen(false);
-    setDesktopProductsOpen(false);
-    setDesktopBrochuresOpen(false);
-  }, [pathname]);
 
   const brochures = [
     {
@@ -75,12 +77,42 @@ export default function Navbar() {
   ];
 
   const products = [
-    { name: "Spices", path: "/spices", desc: "Turmeric, cumin, black pepper & authentic Indian spices" },
-    { name: "Cereals & Pulses", path: "/cerealsandpulses", desc: "Basmati rice, wheat, grains & premium pulses" },
-    { name: "Fresh Produce", path: "/fruitsandvegetables", desc: "Farm-fresh onions, lemons, mangoes & seasonal produce" },
-    { name: "Organic Foods", path: "/organicfood", desc: "Certified pure natural organic agricultural produce" },
-    { name: "Toys", path: "/toys", desc: "Traditional Indian wooden toys, educational & BIS certified toys" },
-    { name: "Other Commodities", path: "/others", desc: "Specialty agro exports and custom trade sourcing" },
+    {
+      name: "Spices",
+      path: "/spices",
+      icon: "/updates/new-india-export-icons/spices.png",
+      desc: "Turmeric, cumin, black pepper & whole spices",
+    },
+    {
+      name: "Cereals & Pulses",
+      path: "/cerealsandpulses",
+      icon: "/updates/new-india-export-icons/cereals-pulses.png",
+      desc: "Basmati rice, wheat, grains & pulses",
+    },
+    {
+      name: "Fresh Produce",
+      path: "/fruitsandvegetables",
+      icon: "/updates/new-india-export-icons/fresh-produce.png",
+      desc: "Farm-fresh onions, lemons & mangoes",
+    },
+    {
+      name: "Organic Foods",
+      path: "/organicfood",
+      icon: "/updates/new-india-export-icons/organic-foods.png",
+      desc: "Certified organic grains, spices & more",
+    },
+    {
+      name: "Toys",
+      path: "/toys",
+      icon: "/updates/new-india-export-icons/toys.png",
+      desc: "Traditional Indian wooden & educational toys",
+    },
+    {
+      name: "Other Commodities",
+      path: "/others",
+      icon: "/updates/new-india-export-icons/other-commodities.png",
+      desc: "Specialty agro exports and custom trade",
+    },
   ];
 
   const navItems = [
@@ -200,29 +232,52 @@ export default function Navbar() {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 8, scale: 0.98 }}
                             transition={{ duration: 0.16 }}
-                            className="absolute left-0 top-full pt-1 z-50 w-72"
+                            className="absolute left-0 top-full pt-1.5 z-50 w-[336px] max-w-[calc(100vw-2rem)]"
                           >
-                            <div className="bg-white rounded-2xl p-2 shadow-2xl border border-black/[0.08]">
-                              <div className="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-[#686F6B] border-b border-black/[0.05] mb-1">
-                                Export Categories
+                            <div className="bg-white rounded-2xl p-3.5 shadow-[0_20px_48px_-12px_rgba(6,36,20,0.22)] border border-black/[0.06]">
+                              <div className="pb-2.5 border-b border-neutral-200/80">
+                                <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#4E5752]">
+                                  Export Categories
+                                </span>
                               </div>
-                              {products.map((prod) => (
-                                <Link
-                                  key={prod.name}
-                                  href={prod.path}
-                                  className="group flex flex-col px-3 py-2 rounded-xl hover:bg-[#EAF5EC] transition-colors"
-                                >
-                                  <div className="flex items-center justify-between">
-                                    <span className="text-sm font-semibold text-[#202522] group-hover:text-[#006B35]">
-                                      {prod.name}
-                                    </span>
-                                    <ArrowRight size={13} className="opacity-0 group-hover:opacity-100 transition-all text-[#006B35]" />
+
+                              <div className="divide-y divide-neutral-200/70 mt-0.5">
+                                {products.map((prod) => (
+                                  <div key={prod.name} className="py-0.5 first:pt-1 last:pb-0">
+                                    <Link
+                                      href={prod.path}
+                                      onClick={() => setDesktopProductsOpen(false)}
+                                      className="group flex items-center gap-2.5 px-2 py-1.5 -mx-2 rounded-xl hover:bg-[#F3F8F2] transition-colors"
+                                    >
+                                      <div className="w-8 h-8 rounded-full overflow-hidden shrink-0">
+                                        <Image
+                                          src={prod.icon}
+                                          alt={prod.name}
+                                          width={32}
+                                          height={32}
+                                          quality={100}
+                                          className="w-full h-full object-cover scale-[1.12] transition-transform duration-200 group-hover:scale-[1.18]"
+                                        />
+                                      </div>
+
+                                      <div className="flex-1 min-w-0">
+                                        <div className="flex items-center justify-between gap-1.5">
+                                          <span className="text-[13.5px] font-bold text-[#141A16] group-hover:text-[#006B35] leading-tight transition-colors">
+                                            {prod.name}
+                                          </span>
+                                          <ArrowRight
+                                            size={13}
+                                            className="text-[#006B35] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all shrink-0"
+                                          />
+                                        </div>
+                                        <p className="text-[11px] text-[#616964] leading-snug mt-0.5 truncate">
+                                          {prod.desc}
+                                        </p>
+                                      </div>
+                                    </Link>
                                   </div>
-                                  <span className="text-xs text-[#686F6B] line-clamp-1">
-                                    {prod.desc}
-                                  </span>
-                                </Link>
-                              ))}
+                                ))}
+                              </div>
                             </div>
                           </motion.div>
                         )}
@@ -277,24 +332,24 @@ export default function Navbar() {
                       </AnimatePresence>
                     </div>
                   ) : (
-                    <div key={item.name} className="relative h-full flex flex-col justify-center">
+                    <div key={item.name} className="relative h-full flex items-center">
                       <Link
                         href={item.path}
-                        className={`py-2 text-sm sm:text-base font-semibold tracking-wide transition-colors ${
+                        className={`relative py-1.5 text-sm sm:text-base font-semibold tracking-wide transition-colors ${
                           isActive(item.path)
                             ? isTransparent ? "text-white font-bold" : "text-[#006B35] font-bold"
                             : isTransparent ? "text-white/90 hover:text-[#F58220]" : "text-[#18201B] hover:text-[#006B35]"
                         }`}
                       >
                         {item.name}
+                        {/* Full text-width orange underline indicator for active page */}
+                        {isActive(item.path) && (
+                          <motion.div
+                            layoutId="navUnderline"
+                            className="absolute left-0 right-0 bottom-0 h-[3px] bg-[#F58220] rounded-full"
+                          />
+                        )}
                       </Link>
-                      {/* Orange underline indicator for active page */}
-                      {isActive(item.path) && (
-                        <motion.div
-                          layoutId="navUnderline"
-                          className="h-1 w-7 bg-[#F58220] rounded-full mx-auto"
-                        />
-                      )}
                     </div>
                   )
                 )}
@@ -391,18 +446,44 @@ export default function Navbar() {
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            className="overflow-hidden pl-3 mt-1 space-y-1 border-l-2 border-[#006B35]/20 ml-2"
+                            className="overflow-hidden mt-2"
                           >
-                            {products.map((prod) => (
-                              <Link
-                                key={prod.name}
-                                href={prod.path}
-                                onClick={() => setMobileOpen(false)}
-                                className="block px-3 py-2.5 rounded-lg text-sm font-medium text-[#333835] hover:text-[#006B35]"
-                              >
-                                {prod.name}
-                              </Link>
-                            ))}
+                            <div className="bg-white rounded-2xl p-3 border border-neutral-200/80 shadow-xs space-y-2">
+                              <div className="pb-2 border-b border-neutral-200/75">
+                                <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#4E5752]">
+                                  Export Categories
+                                </span>
+                              </div>
+                              <div className="divide-y divide-neutral-100">
+                                {products.map((prod) => (
+                                  <Link
+                                    key={prod.name}
+                                    href={prod.path}
+                                    onClick={() => setMobileOpen(false)}
+                                    className="flex items-center gap-3 py-2.5 px-1.5 -mx-1.5 rounded-xl hover:bg-[#F3F8F2] transition-colors"
+                                  >
+                                    <div className="w-9 h-9 rounded-full overflow-hidden shrink-0">
+                                      <Image
+                                        src={prod.icon}
+                                        alt={prod.name}
+                                        width={36}
+                                        height={36}
+                                        quality={100}
+                                        className="w-full h-full object-cover scale-[1.12]"
+                                      />
+                                    </div>
+                                    <div className="min-w-0 flex-1">
+                                      <span className="block text-[13px] font-bold text-[#141A16] leading-snug">
+                                        {prod.name}
+                                      </span>
+                                      <span className="block text-[11px] text-[#616964] leading-snug mt-0.5 line-clamp-1">
+                                        {prod.desc}
+                                      </span>
+                                    </div>
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
                           </motion.div>
                         )}
 

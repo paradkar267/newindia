@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { X, Download, FileText, ExternalLink, Eye, ArrowUpRight, Sparkles } from "lucide-react";
+import { X, Download, FileText, ExternalLink, Eye, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 export default function BrochuresPage() {
@@ -41,19 +41,12 @@ export default function BrochuresPage() {
           sizes="100vw"
           className="object-cover object-center"
         />
-        {/* Balanced cinematic overlay: preserves luxury catalogue stacks on left and open glossy trade catalogue on right, with dark center gradient for crisp text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#004B28]/45 via-black/30 to-[#004B28]/75" />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/40 to-transparent pointer-events-none" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 space-y-4 sm:space-y-5">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-emerald-200 text-xs sm:text-sm font-semibold uppercase tracking-wider shadow-sm">
-            <Sparkles size={14} className="text-[#F58220]" />
-            <span>Publications & Literature</span>
-          </div>
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white drop-shadow-lg">
+          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]">
             Brochures & Catalogues
           </h1>
-          <p className="max-w-2xl mx-auto text-white/90 text-base sm:text-lg font-normal leading-relaxed drop-shadow-md">
+          <p className="max-w-2xl mx-auto text-white/95 text-base sm:text-lg font-normal leading-relaxed drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)]">
             Explore our visual catalogue pages of export commodities and trade capabilities.
           </p>
         </div>

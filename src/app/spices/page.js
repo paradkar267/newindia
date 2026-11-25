@@ -79,12 +79,6 @@ export default function SpicesPage() {
 
         <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl space-y-4 sm:space-y-5">
-            {/* Top Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF5EC] border border-[#006B35]/25 text-[#006B35] text-[11px] font-bold uppercase tracking-wider shadow-2xs">
-              <Leaf size={13} className="text-[#006B35]" />
-              <span>PURE INDIAN AGRICULTURAL SPICES</span>
-            </div>
-
             {/* Signature Two-Tone Headline */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-heading leading-[1.12] text-[#111814]">
               <span className="text-[#004B28]">Spices &</span>{" "}

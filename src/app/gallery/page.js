@@ -9,10 +9,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Maximize2,
-  Sparkles,
-  Globe2,
-  Award,
-  Ship,
   Play,
   ArrowRight,
   Camera,
@@ -115,37 +111,16 @@ export default function GalleryPage() {
           className="object-cover object-center"
         />
         {/* Balanced cinematic scrim for crisp typography without washing out golden harbor colors */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-[#051F11]/60 to-[#062415]/88 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-[#062415]/85 pointer-events-none" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 space-y-4 sm:space-y-5">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white text-[11px] sm:text-xs font-semibold uppercase tracking-[0.14em] shadow-sm">
-            <Sparkles size={13} className="text-[#F58220]" />
-            <span>Visual Evidence &amp; Global Engagements</span>
-          </div>
-
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-heading tracking-[-0.015em] text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.55)] leading-[1.12]">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-heading tracking-tight text-white drop-shadow-lg leading-[1.12]">
             Gallery &amp; <span className="text-[#F58220]">Global Summits</span>
           </h1>
 
-          <p className="max-w-2xl mx-auto text-white/95 text-sm sm:text-base md:text-lg font-normal leading-relaxed tracking-[0.005em] drop-shadow-[0_2px_10px_rgba(0,0,0,0.75)]">
+          <p className="max-w-2xl mx-auto text-white/95 text-sm sm:text-base md:text-lg font-normal leading-relaxed drop-shadow-md">
             A glimpse into our trade exhibitions, farmer field visits, port operations, and international delegations.
           </p>
-
-          {/* Compact Trust Pillar Summary Pills */}
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[11px] sm:text-xs">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white font-semibold">
-              <Globe2 size={13} className="text-[#F58220]" />
-              <span>International Expos</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white font-semibold">
-              <Award size={13} className="text-[#84E07B]" />
-              <span>Ministry &amp; WTC Forums</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white font-semibold">
-              <Ship size={13} className="text-[#F58220]" />
-              <span>ICD Port &amp; Farm Audits</span>
-            </span>
-          </div>
         </div>
       </section>
 
@@ -193,17 +168,15 @@ export default function GalleryPage() {
                     key={tab.id}
                     type="button"
                     onClick={() => handleTabChange(tab.id)}
-                    className={`inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full text-xs sm:text-[13px] font-bold transition-all duration-200 cursor-pointer ${
-                      active
-                        ? "bg-[#004B28] text-white shadow-sm"
-                        : "text-[#556059] hover:text-[#18201B] hover:bg-[#FBF6EF]"
-                    }`}
+                    className={`inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full text-xs sm:text-[13px] font-bold transition-all duration-200 cursor-pointer ${active
+                      ? "bg-[#004B28] text-white shadow-sm"
+                      : "text-[#556059] hover:text-[#18201B] hover:bg-[#FBF6EF]"
+                      }`}
                   >
                     <span>{tab.label}</span>
                     <span
-                      className={`px-1.5 py-0.5 rounded-full text-[10px] font-extrabold ${
-                        active ? "bg-[#F58220] text-white" : "bg-[#EAF5EC] text-[#006B35]"
-                      }`}
+                      className={`px-1.5 py-0.5 rounded-full text-[10px] font-extrabold ${active ? "bg-[#F58220] text-white" : "bg-[#EAF5EC] text-[#006B35]"
+                        }`}
                     >
                       {tab.count}
                     </span>

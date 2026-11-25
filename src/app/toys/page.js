@@ -105,10 +105,6 @@ export default function ToysPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40 pointer-events-none" />
 
         <div className="relative z-10 w-full max-w-4xl mx-auto px-4 space-y-3 sm:space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-emerald-200 text-[11px] sm:text-sm font-semibold uppercase tracking-wider shadow-sm">
-            <Sparkles size={14} className="text-[#F58220] shrink-0" />
-            <span>BIS Certified • Non-Toxic • Eco-Friendly</span>
-          </div>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white drop-shadow-lg font-heading leading-[1.12]">
             Indian Toys &amp; Handicrafts
           </h1>

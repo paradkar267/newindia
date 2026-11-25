@@ -19,14 +19,12 @@ export default function AboutPage() {
           sizes="100vw"
           className="object-cover object-center"
         />
-        {/* Subtle cinematic gradient to enhance text clarity while keeping vivid port sunset */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/20 to-black/55 pointer-events-none" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 space-y-4 sm:space-y-5">
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-heading tracking-tight text-white drop-shadow-lg leading-[1.15]">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-heading tracking-tight text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.65)] leading-[1.15]">
             About <span className="text-[#F58220]">New India Export</span>
           </h1>
-          <p className="max-w-2xl mx-auto text-white/95 text-sm sm:text-base md:text-lg font-normal leading-relaxed drop-shadow-md">
+          <p className="max-w-2xl mx-auto text-white/95 text-sm sm:text-base md:text-lg font-normal leading-relaxed drop-shadow-[0_1px_10px_rgba(0,0,0,0.65)]">
             Committed to delivering India&apos;s agricultural authenticity, purity, and excellence worldwide.
           </p>
         </div>

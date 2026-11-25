@@ -68,12 +68,6 @@ export default function CerealsAndPulsesPage() {
 
         <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-xl lg:max-w-2xl space-y-3 sm:space-y-4">
-            {/* Top Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white text-[11px] font-bold uppercase tracking-wider shadow-sm">
-              <Leaf size={12} className="text-[#84E07B]" />
-              <span>EXPORT DIRECT FROM INDIA</span>
-            </div>
-
             {/* Signature Two-Tone Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold tracking-tight font-heading leading-[1.12] text-white drop-shadow-md">
               Cereals, Grains &amp; <span className="text-[#F58220]">Pulses</span>
